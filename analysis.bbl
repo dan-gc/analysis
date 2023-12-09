@@ -16,5 +16,88 @@
   {}
 \endgroup
 
-\datalist[entry]{nty/global//global/global}\enddatalist
+\datalist[entry]{nty/global//global/global}
+  \entry{narici}{book}{}
+    \name{author}{2}{}{%
+      {{hash=BG}{%
+         family={Bachman},
+         familyi={B\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=NL}{%
+         family={Narici},
+         familyi={N\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Dover Publications}%
+    }
+    \strng{namehash}{BGNL1}
+    \strng{fullhash}{BGNL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{isbn}{9780486402512}
+    \field{series}{Academic Press textbooks in mathematics}
+    \field{title}{Functional Analysis}
+    \verb{url}
+    \verb https://books.google.com.mx/books?id=wCHtLumoGY4C
+    \endverb
+    \field{year}{2000}
+  \endentry
+
+  \entry{brezis}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BH}{%
+         family={Brezis},
+         familyi={B\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer New York}%
+    }
+    \strng{namehash}{BH1}
+    \strng{fullhash}{BH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{isbn}{9780387709130}
+    \field{series}{Universitext}
+    \field{title}{Functional Analysis, Sobolev Spaces and Partial Differential
+  Equations}
+    \field{year}{2010}
+  \endentry
+
+  \entry{folland}{book}{}
+    \name{author}{1}{}{%
+      {{hash=FG}{%
+         family={Folland},
+         familyi={F\bibinitperiod},
+         given={G.B.},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{FG1}
+    \strng{fullhash}{FG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{isbn}{9781118626399}
+    \field{series}{Pure and Applied Mathematics: A Wiley Series of Texts,
+  Monographs and Tracts}
+    \field{title}{Real Analysis: Modern Techniques and Their Applications}
+    \field{year}{2013}
+  \endentry
+\enddatalist
 \endinput
