@@ -690,7 +690,7 @@ Let $X$ be a real or complex vector space.
 		If $A$ is a linear transformation on a finite-dimensional inner product space $X$, then $\operatorname{range} (A)^\perp=\operatorname{null}(A^*)$.
 	\end{thm}
 	
-	\subsection{Spectral theorem for normal transofmrations}
+	\subsection{Spectral theorem for normal transformations}
 	\begin{thm}
 		Let $A$ be a self-adjoint transformation in a finite-dimensional inner product space $X$. Then there exists an orthonormal basis of $X$ consistinf of eigenvectors of $A$.
 	\end{thm}
@@ -739,17 +739,131 @@ Let $X$ be a real or complex vector space.
 	\end{thm}
 
 \section{Normed spaces}
-\begin{enumerate}
-	\item Let $X$ be a real or complex vector space. A \textbf{\textit{norm}} on $X$ is a function $\Vert \cdot\Vert:X\to\R$ such that
+	Let $X$ be a real or complex vector space. A \textbf{\textit{norm}} on $X$ is a function $\Vert \cdot\Vert:X\to\R$ such that
 \begin{enumerate}
 	\item $\Vert x\Vert\geq0$ and $\Vert x\Vert=0$ if and only if $x=0$.
 	\item $\Vert\lambda x\Vert=|\lambda|\Vert x\Vert$ for all $x\in X$ and $\lambda\in\R$.
 	\item \textbf{(Triangle inequality.)} $\Vert x+y\Vert\leq\Vert x\Vert+\Vert y\Vert$ for all $x,y\in X$.
 \end{enumerate}
+Every normed space is a metric space with the distance function $\rho(x,y)=\Vert x-y\Vert$. Two norms $\Vert\cdot\Vert_1$ and $\Vert\cdot\Vert_2$ are called \textbf{\textit{equivalent}} if there exist $C_1,C_2>0$ such that
+\[C_1\Vert x\Vert_1\leq \Vert x\Vert_2\leq \Vert x\Vert_1\qquad\forall x\in X\]
+Equivalent norms define the same topology and the same Cauchy sequences.
 
-\end{enumerate}
-%\section{Banach spaces}
+A normed space that is complete is called a \textbf{\textit{Banach space}}.
+\begin{thm}
+	For every normed linear space $X$ there is a complete normed linear space $X^*$ such that $X$ is \textbf{\textit{congruent}} (isomorphic and isometric) to a dense subset of $X^*$ and the norm on $X^*$ extends the norm on $X$.
+\end{thm}
+If $\{x_n\}$ is a sequence in $X$, the series $\sum_{n=1}^\infty x_n$ \textbf{\textit{converges to $x$}} if $\sum_{n=1}^N\to x$ as $N\to \infty$, and it is \textbf{\textit{absolutely convergent}} is $\sum_{n=1}^\infty\Vert x_n\Vert<\infty$.
+\begin{thm}
+	A normed vector space $X$ is complete if and only if every absoultely convergent series in $X$ converges.
+\end{thm}
 
+\begin{examples}\leavevmode
+	\begin{itemize}
+		\item If $X$ is a topological space, $B(X)$ and $BC(X)$ are Banach spaces with the uniform norm $\Vert f\Vert_u=\sup_{x\in X}|f(x)|$.
+		\item If $(X,\mathcal{M},\mu)$ is a measure space, $L^1(\mu)$ is a Banach space with the norm $\Vert f\Vert_1=\int|f|d\mu$. (Observe that $\Vert\cdot\Vert_1$ is only a seminorm if we do not identify functions that are equal a.e.)
+		%\item If $(X\mathcal{M})$ is a normed space and $M(X)$ is the space of complex measures on $(X,\mathcal{M})$, then $M(X)$ is a Banach space.
+	\end{itemize}
+\end{examples}
+If $X$ and $Y$ are normed vector spaces, $X\times Y$ is a normed vector space with the \textbf{\textit{product norm}}, $\Vert(x,y)\Vert=\max(\Vert x\Vert,\Vert y\Vert)$.  If $M$ is a vector subspace of $X$, the quotient space $X/M$ consisting of equivalence classes under $x\sim y$ iff $x-y\in M$ is a normed space with the \textbf{\textit{quotient norm}}, $\Vert x+M\Vert=\inf_{y\in M}\Vert x+y\Vert$.
+
+A linear map $T:X\to Y$ between two normed vector spaces is \textbf{\textit{bounded}} if there exists $C\geq0$ such that
+\[\Vert Tx\Vert\leq C\Vert x\Vert\qquad \forall x\in X\]
+\begin{prop}
+	If $X$ and $Y$ are normed vector spaces and $T:X\to Y$ is a linear map, then $T$ is continuous if and only if it is bounded.
+\end{prop}
+\begin{proof}
+	($\implies $) There exists $\delta>0$ such that $\Vert x\Vert\leq\delta$ implies $\Vert Tx\Vert\leq1$. For any nonzero $x\in X$,
+	\[\Vert Tx\Vert=\left\Vert \frac{\Vert x\Vert}{\delta}T\left(\delta\frac{x}{\Vert x\Vert}\right)\right\Vert\leq\frac{1}{\delta} \Vert x\Vert.\]
+	($\impliedby$) If $\Vert x-y\Vert<\frac{\varepsilon}{C}$,
+	\[\Vert T(x)-T(y)\Vert=\Vert T(x-y)\Vert\leq C\Vert x-y\Vert<\varepsilon.\]
+\end{proof}
+In fact, if $T$ is bounded it is uniformly continuous and even Lipschitz continuous.
+
+We denote by $L(X,Y)$ the space of bounded linear maps from $X$ to $Y$, which is a normed vector space with the \textbf{\textit{operator norm}}
+\begin{align*}
+	\Vert T\Vert&=\sup\{\Vert Tx\Vert:\Vert x\Vert=1\}\\
+	&=\sup\left\{\frac{\Vert tx\Vert}{\Vert x\Vert}:x\neq0\right\}\\
+	&=\inf\{C:\Vert Tx\Vert\leq C\Vert x\Vert \text{ for all }x\in X\}
+\end{align*}
+\begin{prop}
+	If $Y$ is complete, so is $L(X,Y)$.
+\end{prop}
+\begin{proof}
+	If $\{T_n\}$ is a Cauchy sequence in $L(X,Y)$, the sequence $\Vert T_nx\Vert$ is Cauchy in $Y$ since $\Vert T_nx-T_mx\Vert\leq\Vert T_n-T_m\Vert\Vert x\Vert$. Define pointwise $Tx=\lim_{n\to\infty}T_nx$.
+\end{proof}
+$T$ is \textbf{\textit{invertible}} if it bijective and $T^{-1}$ is bounded. It is called an isometry if $\Vert Tx\Vert=\Vert x\Vert$ for all $x\in X$. An isometry is injective but not necessarily surjective.
+
+If $X$ is a vector space over $K=\R,\C$, a \textbf{\textit{linear functional}}. is a linear map from $X$ to $K$. The space $X^*:=L(X,K)$ is called the \textbf{\textit{dual space}} of $X$. Since $K$ is complete, $X^*$ is complete with the operator norm.
+
+\begin{prop}[Relationship between real and complex linear functionals]
+	Let $X$ be a vector space over $\C$. If $f$ is a complex linear functional on $X$,
+	$u:=\operatorname{Re}x$ is a real linear functional and $f(x)=u(x)-iu(ix)$.
+	Conversely, if $u$ is a real functional on $X$, then $f(x):=u(x)-iu(ix)$ is a complex linear functional, and if $X$ is normed, $\Vert u\Vert=\Vert f\Vert$.
+\end{prop}
+
+It is not obvious that there are any nonzero bounded linear functionals on an arbitrary normed vector space. If $X$ is a real vector space, \textbf{\textit{sublinear}} or \textbf{\textit{Minkoswky functional}} on $X$ is a map $p:X\to\R$ such that
+
+\begin{equation}\label{eq:sublinear1}
+		p(\lambda x)=\lambda p(x)\qquad\forall x\in X\text{ and }\lambda\geq0
+\end{equation}
+\begin{equation}\label{eq:sublinear2}
+	p(x+y)\leq p(x)+p(y)\qquad\forall x,y\in X
+\end{equation}
+
+\begin{thm}[Helly-Hahn-Banach]\label{thm:helly-hahn-banach}
+	Let $E$ be a vector space over $\R$ and $p:E\to\R$ a sublinear functional. If $G\subseteq E$ is a linear subspace and $g:G\to\R$ is a linear functional such that
+	\[g(x)\leq p(x)\quad\forall x\in E,\]
+	then there exists a linear functional $f$ defined on all of $E$ that extends $g$, that is, $g(x)=f(x)\;\forall x\in G$ and such that
+	\[f(x)\leq p(x)\quad\forall x\in E.\]
+\end{thm}
+For a proof first recall that a partial order $P$ is \textbf{\textit{inductive}} if every totally ordered subset $Q$ in $P$ has an upper bound, and that
+\begin{lemma}[Zorn]
+	Every nonempty order set that is inductive has a maximal element.
+\end{lemma}
+\begin{proof} (Of \cref{thm:helly-hahn-banach})
+	Consider the set
+	\[P=\left\{h:D(h)\subseteq E\to\R:\substack{D(h)\text{ is a linear subspace of }E,\\
+	h\text{ is linear},G\subseteq D(h),\\
+	h\text{ extends }g,\text{ and }h(x)\leq p(x)\;\forall x\in D(h)
+	}\right\}\]
+
+Then $P$ is a partial order with
+\[h_1\leq h_2\iff D(h_1)\subseteq D(h_2)\text{ and }h_2\text{ extends }h_1\]
+$P$ is nonempty since $g\in P$. To show it is inductive, take $Q\subseteq P$ a partially order subset and write $Q=(h_i)_{i\in I}$. Then define
+\[D(h)=\bigcup_{i\in I}D(h_i),\qquad h(x)=h_i(x)\quad\text{if }x\in D(h_i) \text{ for some }i\in I\]
+which is an upper bound of $Q$, so that there is a maximal element $f$ in $P$ by Zorn's Lemma. To finish it suffices to show that $D(f)=E$.
+
+For a contradiction suppose that $D(f)\neq E$ and choose $x_0\notin D(f)$. We shall construct a function $h\in P$ such that $f<h$. Define $D(h)=D(f)+\R x_0$ and, for every $x\in D(f)$, set
+ \[h(x+\lambda x_0)=f(x)+t\alpha\quad \forall \lambda\in\R\]
+ where $\alpha$ is a constant that we choose as follows. We must ensure that
+\[h(x+\lambda x_0)=f(x)+\lambda\alpha\leq p(x+tx_0)\quad\forall x\in D(f)\quad\text{and}\quad\forall \lambda\in\R\]
+For any $x,y\in D(f)$,
+\begin{align*}
+	f(x)+f(y)=f(x+y)\leq p&(x+y)\leq p(x+x_0)+p(y-x_0)\\
+	\implies f(x)-p(y-x_0)&\leq p(x+x_0)-f(y)
+\end{align*}
+So let $\alpha$ satisfy
+\[\sup_{y\in D(f)}\{f(y)-p(y-x_0)\}\leq\alpha\leq\inf_{x\in D(f)}\{p(x+x_0)-f(x)\}\]
+If $\lambda =0$, then $h(x)=f(x)\leq p(x)$. If $\lambda\neq0$ we must be careful since sublinear functionals only satisfy \cref{eq:sublinear1} for positve scalars.
+
+If $\lambda >0$, then 
+\begin{align*}
+	h(x+\lambda x_0)&=\lambda\cdot h(x/\lambda+x_0)\\
+	&=\lambda\cdot(f(x/\lambda)+\alpha))\\
+	&\leq \lambda\cdot(f(x/\lambda)+p(x/\lambda+x_0)-f(x/\lambda))\\
+	&\leq p(x+\lambda x_0)
+\end{align*}
+and if $\lambda=-\mu<0$,
+\begin{align*}
+	h(x+tx_0)&=(-\lambda)\cdot h(-x/\lambda-x_0)\\
+	&=\mu\cdot(f(x/\mu)-\alpha))\\
+	&\leq \mu\cdot(f(x/\mu)-f(x/\mu)+p(x/\mu+x_0))\\
+	&\leq p(x-\mu x_0)\\
+	&=p(x+\lambda x_0).
+\end{align*}
+Then $h$ extends $f$ and $D(f)\subseteq D(h)$ but $f$ is maximal.
+\end{proof}
 \clearpage
 \section{Exercises}
 \begin{exer}

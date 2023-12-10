@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {3.2}Orthogonal projections}{16}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Riesz representation theorem}{17}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Adjoint operator}{17}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Spectral theorem for normal transofmrations}{18}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.5}Spectral theorem for normal transformations}{18}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Unitary and orthogonal transformations}{18}{subsection.3.6}%
 \contentsline {section}{\numberline {4}Normed spaces}{19}{section.4}%
-\contentsline {section}{\numberline {5}Exercises}{20}{section.5}%
+\contentsline {section}{\numberline {5}Exercises}{23}{section.5}%

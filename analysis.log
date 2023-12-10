@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  9 DEC 2023 16:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  10 DEC 2023 10:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1408,13 +1408,13 @@ OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^C[](\OML/cmm/m/it/10 T[]M\OT1/cmr/m/n/10 )$
 
  []
 
-[17] [18] [19]
+[17] [18] [19] [20] [21] [22]
 Package hyperref Info: bookmark level for unknown exer defaults to 0 on input l
-ine 756.
- [20
+ine 870.
+ [23
 
 ]
-Overfull \hbox (25.02295pt too wide) in paragraph at lines 796--797
+Overfull \hbox (25.02295pt too wide) in paragraph at lines 910--911
 [][]\OT1/ppl/b/n/10 Exercise 5.3. [][]\OT1/ppl/m/n/10 Se-jam $\OT1/cmr/m/n/10 (
 \OML/cmm/m/it/10 C\OT1/cmr/m/n/10 ([0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1])\OML
 /cmm/m/it/10 ; \OMS/cmsy/m/n/10 k ^^A k[]\OT1/cmr/m/n/10 )$ \OT1/ppl/m/n/10 um 
@@ -1423,19 +1423,19 @@ m/n/10 k[] \OT1/cmr/m/n/10 = [][] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f\OT1/cmr/
 m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j$
  []
 
-[21] (./analysis.aux)
+[24] (./analysis.aux)
 Package rerunfilecheck Info: File `analysis.out' has not changed.
-(rerunfilecheck)             Checksum: F689FD6B14184C18975F0CE68A1D77B2;3250.
+(rerunfilecheck)             Checksum: C5F97CF087635AE05DC8CB73F1570BA4;3250.
 Package logreq Info: Writing requests to 'analysis.run.xml'.
 \openout1 = `analysis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37119 strings out of 476025
- 752343 string characters out of 5790018
+ 37148 strings out of 476025
+ 752860 string characters out of 5790018
  1868388 words of memory out of 5000000
- 56718 multiletter control sequences out of 15000+600000
- 532605 words of font info for 93 fonts, out of 8000000 for 9000
+ 56727 multiletter control sequences out of 15000+600000
+ 533280 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,85p,1883b,1129s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -1472,10 +1472,10 @@ e/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2023/
 texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023/texmf-
 dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist/fo
 nts/type1/urw/palatino/uplri8a.pfb>
-Output written on analysis.pdf (21 pages, 314466 bytes).
+Output written on analysis.pdf (24 pages, 329342 bytes).
 PDF statistics:
- 611 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 267 named destinations out of 1000 (max. 500000)
+ 644 PDF objects out of 1000 (max. 8388607)
+ 568 compressed objects within 6 object streams
+ 286 named destinations out of 1000 (max. 500000)
  181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
