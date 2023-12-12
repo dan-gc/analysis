@@ -99,5 +99,38 @@
     \field{title}{Real Analysis: Modern Techniques and Their Applications}
     \field{year}{2013}
   \endentry
+
+  \entry{riesz}{book}{}
+    \name{author}{2}{}{%
+      {{hash=RF}{%
+         family={Riesz},
+         familyi={R\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=NB}{%
+         family={Nagy},
+         familyi={N\bibinitperiod},
+         given={B.S.},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Dover Publications}%
+    }
+    \strng{namehash}{RFNB1}
+    \strng{fullhash}{RFNB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{isbn}{9780486162140}
+    \field{series}{Dover Books on Mathematics}
+    \field{title}{Functional Analysis}
+    \verb{url}
+    \verb https://books.google.com.mx/books?id=JCfEAgAAQBAJ
+    \endverb
+    \field{year}{2012}
+  \endentry
 \enddatalist
 \endinput

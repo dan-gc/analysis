@@ -26,7 +26,7 @@
 	calc,%
 	arrows,%
 	shapes,
-	decorations.markings
+	decorations.markings,backgrounds,calc,intersections
 }
 \usepackage[bookmarks,bookmarksopen,bookmarksdepth=3]{hyperref}%Links a lugares en el texto
 \hypersetup{%colores
@@ -77,6 +77,7 @@
 \declaretheoremstyle[headfont=\color{persiangreen}\normalfont\bfseries,]{colored4}
 \declaretheoremstyle[headfont=\color{brightcerulean}\normalfont\bfseries,]{colored5}
 \declaretheoremstyle[headfont=\color{lavendermagenta}\normalfont\bfseries,]{colored6}
+\declaretheoremstyle[headfont=\color{blue-violet}\normalfont\bfseries,]{colored7}
 
 \declaretheorem[style=colored1,numberwithin=section,name=Theorem]{thm}
 \declaretheorem[style=colored2,numberwithin=section,numberlike=thm,name=Proposition]{prop}
@@ -86,9 +87,12 @@
 \declaretheorem[style=colored5,numbered=no,name=Examples]{examples}
 \declaretheorem[style=colored6,numberwithin=section,name=Exercise]{exer}
 \declaretheorem[style=colored6,numbered=no,name=Exercise]{exer*}
+\declaretheorem[style=colored7,numberwithin=section,name=Remark]{remark}
+
+\numberwithin{equation}{section}
+
 
 \newtheorem*{defn}{Definition}
-\newtheorem*{remark}{Remark}
 \newtheorem{cl}{Claim}
 \newtheorem*{question}{question}
 
@@ -100,15 +104,13 @@
 \newcommand{\D}{\mathbb{D}}
 \newcommand{\Cinf}{C^\infty}
 
-\DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\sen}{sen}
 \DeclareMathOperator{\img}{img}
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\supp}{supp}
-\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Int}{Int}
 
 \begin{document}
 	\begin{center}
@@ -284,12 +286,12 @@ Let $X$ be a nonempty set.
 		\end{prop}
 		\end{itemize}
 
-		\subsection{Integration}
+		\subsection{Measurable functions}
 		%\item \textbf{(Integration.)} 
 		Now we construct integrals from simple funtions.
 		
 		\begin{itemize}
-			\item \textbf{(Measurable maps.)} Recall that a mapping $f:X\to Y$ between two sets induces a mapping $f^{-1}:\mathcal{P}(Y)\to\mathcal{P}X$ defined by the inverse image, which preserves unions, intersection and complements, so that if $\mathcal{N}$ is a $\sigma$-algebra on $Y$, then $\{f^{-1}(E):E\in\mathcal{N}\}$ is a $\sigma$-algebra on $X$.
+			\item Recall that a mapping $f:X\to Y$ between two sets induces a mapping $f^{-1}:\mathcal{P}(Y)\to\mathcal{P}X$ defined by the inverse image, which preserves unions, intersection and complements, so that if $\mathcal{N}$ is a $\sigma$-algebra on $Y$, then $\{f^{-1}(E):E\in\mathcal{N}\}$ is a $\sigma$-algebra on $X$.
 			
 			If $(X,\mathcal{M})$ and $(Y,\mathcal{N})$ are measureable spaces, a mapping $f:X\to Y$ is called \textbf{\textit{measurable}} if $f^{-1}(E)\in\mathcal{M}$ for all $E\in\mathcal{N}$.
 			
@@ -338,8 +340,153 @@ Let $X$ be a nonempty set.
 			1\quad&\text{if }x\in E\\
 			0\quad&\text{if }x\notin E
 		\end{cases}\]
+		I$\chi_E$ is measurable if and only if $E\in\mathcal{M}$.
 		
-		A \textbf{\textit{simple function}} is . The \textbf{\textit{integral of a simple function}} is . The \textbf{\textit{integral of a measurable function}} .
+		A \textbf{\textit{simple function on $X$}} is a finite linear combination, with complex coefficientes, of characteristic functions of sets in $\mathcal{M}$. (We do not allow simple functions to assume values $\pm\infty$.) Equivalently, $f:X\to\C$ is simple if and only if $f$ is measurable and the range of $f$ is a finite subset of $\C$. The \textbf{\textit{standard representation of $f$}} is
+		\[f=\sum_{j=1}^nz_j\chi_{E_j}\quad\text{where }E_j=f^{-1}(\{z_j\})\text{ and }\operatorname{range}(f)=\{z_1,\ldots,z_n\}\]
+		If $f$ and $g$ are simple functions, then so are $f+g$ and $fg$.
+		\begin{thm}
+			Let $(X,\mathcal{M})$ be a measurable space.
+			\begin{enumerate}
+				\item If $f:X\to[0,\infty]$ is measurable, there is a sequence $\{\varphi_n\}$ of simple functions such that $0\leq\varphi_1\leq\ldots\leq f$, $\varphi_n\to f$ pointwise and $\varphi_n\to f$ uniformly on any set on which $f$ is bounded.
+				\item If $f:X\to\C$ is measurable, there is a sequence $\{\varphi_n\}$ of simple functions such that $0\leq|\varphi_1|\leq\ldots\leq|f|$, $\{\varphi_n\}\to f$ pointwise and $\varphi_n\to f$ uniformly on any set on which $f$ is bounded.
+			\end{enumerate}
+		\end{thm}
+		\begin{proof}\leavevmode
+			\begin{enumerate}
+				\item Let $n\in\N$ and $0\leq k\leq 2^{2n}-1$. Set
+				\[E^k_n=f^{-1}((k2^{-n},(k+1)2^{-1}])\quad\text{and}\quad F_n=f^{-1}((2^n,\infty]),\]
+				and finally
+				\[\varphi_n=\sum_{k=0}^{2^{2n}-1}k2^{-n}\chi_{E^k_n}+2^n\chi_{F_n}.\]
+				Then $\varphi_n\leq\varphi_{n+1}\;\forall n$ and $0\leq f-\varphi_n\leq 2^{-n}$ on the set where $f\leq 2^n$.
+				\item If $f=g+ih$ we can apply part $a$ to the positiva and negative parts of $g$ and $h$.
+			\end{enumerate}
+			\begin{figure}[H]
+	\begin{center}
+		\begin{subfigure}{\linewidth}
+	\centering
+	\includegraphics[width=1\linewidth]{fig1}
+	\caption{$\varphi_7$.}
+	\label{fig:simple-functions1}
+\end{subfigure}
+\\
+	\begin{subfigure}{\linewidth}
+	\centering
+	\includegraphics[width=1\linewidth]{fig2}
+	\caption{$\varphi_{24}$.}
+	\label{fig:simple-functions2}
+\end{subfigure}
+\end{center}
+\caption{\href{https://tex.stackexchange.com/questions/667646/lebesgue-integral-on-tikz}{Approximation by simple functions.}}
+\end{figure}
+		
+		\begin{prop}
+			Let $(X,\mathcal{M},\mu)$ be a measure space and let $(X,\overline{\mathcal{M}},\overline{\mu})$ be its completion. If $f$ is a $\overline{\mathcal{M}}$-measurable function on $X$, there is an $\mathcal{M}$-measurable function $g$ such that $f=g\overline{\mu}$-almost everywhere.
+		\end{prop}
+		
+		%RIEMANN VS LEBESGUE INTEGRAL FIGRURE
+		\iffalse
+		\begin{figure}[H]
+			\begin{subfigure}{0.5\linewidth}
+				\begin{center}
+				\[\begin{tikzpicture}
+					\begin{scope}[scale=1.5]
+						\draw[thick,name path=A] plot[smooth] coordinates {(0,0) (1,0.8) (2,1) (3.5,0.6) (4,0)};
+						\begin{scope}[on background layer]
+							\foreach \X [count=\Z] in {0,0.5,...,4}
+							{\path[name path global=v-\Z,overlay] (\X,0) --  (\X,0|-current bounding box.north);
+								\draw[name intersections={of=A and v-\Z,by=i-\Z},blue,fill=blue!20] 
+								\ifnum\Z>1
+								let \p1=(i-\the\numexpr\Z-1),\p2=(i-\Z) in
+								(\X-0.5,0) rectangle (\X,{max(\y1,\y2)})
+								\fi;
+								\draw[name intersections={of=A and v-\Z,by=i-\Z},blue,fill=blue!80] 
+								\ifnum\Z>1
+								let \p1=(i-\the\numexpr\Z-1),\p2=(i-\Z) in
+								(\X-0.5,0) rectangle (\X,{min(\y1,\y2)})
+								\fi;}
+						\end{scope}
+					\end{scope}
+				\end{tikzpicture}\]
+				\caption{Riemann integral}
+			\end{center}
+			\end{subfigure}
+			\begin{subfigure}{0.5\linewidth}
+				\begin{center}
+					\[\begin{tikzpicture}
+						\begin{scope}[yshift=-2cm,scale=1.5]
+							\draw[thick,name path=B] plot[smooth] coordinates {(0,0) (1,0.8) (2,1) (3.5,0.6) (4,0)};
+							\begin{scope}[on background layer]
+								\foreach \Y [count=\Z] in {0,0.2,0.4,0.6,0.8,1}
+								{\path[name path global=h-\Z,overlay] (0,\Y) --  (4,\Y);
+									\draw[name intersections={of=B and h-\Z,by={i-\Z-1,i-\Z-2}},red,fill=red!20] 
+									\ifnum\Z>1
+									let \p1=(i-\the\numexpr\Z-1\relax-1),\p2=(i-\the\numexpr\Z-1\relax-2),
+									\p3=(i-\Z-1),\p4=(i-\Z-2)
+									in
+									({min(\x1,\x3)},\Y-0.2) rectangle ({max(\x2,\x4)},\Y)
+									\fi;
+									\draw[name intersections={of=B and h-\Z,by={i-\Z-1,i-\Z-2}},red,fill=red!60] 
+									\ifnum\Z>1
+									let \p1=(i-\the\numexpr\Z-1\relax-1),\p2=(i-\the\numexpr\Z-1\relax-2),
+									\p3=(i-\Z-1),\p4=(i-\Z-2)
+									in
+									({max(\x1,\x3)},\Y-0.2) rectangle ({min(\x2,\x4)},\Y)
+									\fi;
+								}
+							\end{scope}
+						\end{scope}
+					\end{tikzpicture}\]
+					\caption{Lebesgue integral}
+				\end{center}
+			\end{subfigure}
+		\end{figure}
+		\fi
+		\end{proof}
+		
+		\subsection{Riesz and Nagy's Functional Analysis}
+		This section is a short digression to show the approach of \cite{riesz}.
+		\begin{thm}[Lebesgue]
+			Every monotonic function $f(x)$ posses a finite derivative at every point with the possible exception of the points $x$ of a set of measure zero, or, as it is often phrased, almost everywhere.
+		\end{thm}
+		A set of \textbf{\textit{measure zero}} is a set of values $x$ which can be covered by a finite number or by a denumerable sequence of intervals whose total length is arbitrarly small.
+		
+		Functions $f(x)$ continuous or not, for which the sum
+		\[\sum_{ab}=\sum_1^n|f(x_k)-f(x_{k-1})|\]
+		defined in terms of a decomposition of the interval $(a,b)$ into partial intervales $(x_{k-1},x_k)\;k=1,2,\ldots,n$, does not surpass a finit bound, independant of the particular choice of decomposition, are called \textbf{\textit{functions of bounded variation}}. The least upper bound is called the \textbf{\textit{total variation of $f(x)$ in the interval $(a,b)$}}.
+		\begin{thm}[Lebesgue]
+			Every function of bounded variation posses a finite derivative almost everywhere.
+		\end{thm}
+		\begin{thm}[Fubini]
+			Let
+			\[f_1(x)+f_2(x)+\ldots=s(x)\]
+			be a convergent series all of whose terms are monotonic functions of the same type, defined on the interval $a\leq x\leq b$. Then
+			\[f'_1(x)+f'_2(x)+\ldots=s'(x)\]
+			except perhaps on a set of measure zero; that is, term by term differentiation is possible almost everywhere.
+		\end{thm}
+		\begin{thm}[Lebesgue]
+			Almost all points of an arbitrary linear set are density points of that set.
+		\end{thm}
+		We include the following quote regarding Riemann integrals:
+		\begin{quotation}[p. 23]
+			\textit{(...) we arrive at a necessary condition that $f(x)$ be integrable in the Riemann sense, namely, that the function $f(x)$ be continuous almost everywhere.}
+		\end{quotation}
+		A \textbf{\textit{step function}} defined on an interval $(a,b)$ is a function having a constant value $c_k$ in each of a finite number of intervals $i_k$ of finite lenght $|i_k|$ and vanishing outside these intervals. We suppose the integral defined for these functions, as usual, by the sum $\sum c_k|i_k|$.
+		\begin{lemma}\label{lemma:stepfunctionsA}
+			For every sequence $\{\varphi_n(x)\}$ of step functions which decreases to 0 almost everywhere, the sequene of values of their integrals also tends to zero.
+		\end{lemma}
+		\begin{lemma}\label{lemma:stepfunctionsB}
+			If for an increasing sequence of step functions $\{\varphi_n(x)\}$ the values of their integrals have a common bound, then the sequence $\{\varphi_n(x)\}$ tends almost everywhere to a finite limit.
+		\end{lemma}
+		Denote the class of stepfunctions by $C_0$ and the class of functions which are limits almost everywhere of the sequences $\{\varphi_n\}$ referred to in \cref{lemma:stepfunctionsB}. For $f(x)=\lim\varphi_n(x)$ define
+		\[\int_a^bf(x)dx=\lim_{n\to \infty}\int_a^b\varphi_n(x)dx\]
+		which does not depend on the particular choice of functions $\varphi_n$. In fact, if $\{\psi_n\}$ is increases almost everywhere to a limit function $g(x)\geq f(x)$, we also have
+		\[\lim_{n\to\infty}\int_a^b\psi_n(x)dx\geq\lim_{n\to\infty}\int_a^b\varphi_n(x)dx\]
+		so that if $g(x)=f(x)$ almost everywhere is implied.
+		\subsection{Integration}
+		In this section (\textbf{in progress}) we continue reading \cite{folland}.
+		
+		The \textbf{\textit{integral of a simple function}} is . The \textbf{\textit{integral of a measurable function}} .
 		\begin{thm}[Monotone convergence]
 			content...
 		\end{thm}
@@ -443,7 +590,35 @@ Let $X$ be a nonempty set.
 		\end{enumerate}
 	\end{thm}
 	
-	\subsection{Topological spaces} If $\tau_1$ and $\tau_2$ are two topologies on a set $X$, we say $\tau_1$ is \textbf{\textit{weaker}} (or \textbf{\textit{coarser}}) and $\tau_2$ \textbf{\textit{stronger}} (or \textbf{\textit{finer}}). $E\subseteq X$ is called \textbf{\textit{dense}} if $\overline{E}=X$ and \textbf{\textit{nowhere dense}} if $\overline{E}$ has empty interior. $X$ is called \textbf{\textit{separable}} if it has a countable dense subset. 
+	\subsection{Topological spaces}
+	Let $X$ be a nonempty set. A \textbf{\textit{topology}} on $X$ is a family $\mathcal{T}$ of subsets of $X$ that contains $\varnothing$ and $X$ and is closed under arbitrary unions and finite intersections. (That is, if $\{U_\alpha\}_{\alpha\in X}\subset\mathcal{T}$ then $\bigcup_{\alpha\in A}U_\alpha\in\mathcal{T}$ and if $U_1,\ldots, U_n\in\mathcal{T}$ then $\bigcap_{j=1}^nU_j\in\mathcal{T}$.) The pair $(X,\mathcal{T})$ is called a \textbf{\textit{topological space}}.
+	
+	The memebers of $\mathcal{T}$ are called \textbf{\textit{open sets}} and their complements are called \textbf{\textit{closed sets}}. If $A\subseteq X$, the union of all open sets contained in $A$ is called the \textbf{\textit{interior}} of $A$, denoted by $A^o$; so that a point $x\in A^o$ when there is an open set $O$ contained in $A$ such that $x\in O$. The intersection of all closed sets containing $A$ is called the \textbf{\textit{closure}} of $A$. The difference $\bar{A}\backslash A^o=\bar{A}\cap\overline{A^c}$ is called the \textbf{\textit{boundary}} of $A$ and is denoted by $\partial A$.
+	
+	Following \cite{narici}, a point $x\in X$ is an \textbf{\textit{adherence point}} of the subset $E$ if every open set containing $x$ conatins a point of $E$. The set of all adherence points of $E$ is called the \textbf{\textit{closure}} of $E$ and it is denoted by $\overline{E}$. It is immediate that $E\subset\overline{E}$.
+	\begin{prop}
+		Let $X$ be a topological space and $A$ and $B$ subsets of $X$. Then
+		\begin{enumerate}
+			\item $A\subset B\implies\bar{A}\subset\bar{B}$.
+			\item $\overline{A\cup B}\implies\bar{A}\cup\bar{B}$,
+			\item $\bar{A}=\bar{\bar{A}}$.
+			\item A subset $F$ of $X$ is closed if and only if $F=\overline{F}$.
+		\end{enumerate}
+	\end{prop}
+	If $X$ is a topological space and $A$ is a subset of $X$, a point $x\in X$ is called a \textbf{\textit{limit point}} of $A$ if every open set containing $x$ contains a point of $A$ distinct from $x$. The set of all limit points of $A$ is denoted by $A'$ and is called the \textbf{\textit{derived set of $A$}}. Clearly, $\bar{A}=A\cup A'$, and, in view of the last item in the last proposition, $A$ is closed if and only if $A'\subset A$.
+	
+	A sequence of points $\{x_n\}$ in a topological space $X$ \textbf{\textit{converges}} to the point $x\in X$ if for every open set $O$ containing $x$ there exists an index $N$ (dependending on $O$) such that $x_n\in O$ for all $n>N$. That is, every open set containing $x$ must contain almost all (but a finite number) of the $x_n$.
+	
+	\begin{prop} Let $X_1$, $X_2$ and $X_3$ be topologial spaces. Let $f:X_1\to X_2$ and $g:X_2\to X_3$ be mappings.
+		\begin{enumerate} 
+			\item If $f$ and $g$ are continuous, then the composite mapping $gf$ is continuous.
+			\item $f$ is continuous if and only if for every subset $A$ of $X$, $f\bar{A}\subset\overline{f(A)}$.
+			\item Suppose $f$ is a 1:1, onto mapping. Then $f$ is a homeomorphism of $X_1$ onto $X_2$ is and only if, for all subsets $A$ of $X_1$, $f(\bar{A})=\overline{f(A)}$.
+		\end{enumerate}
+	\end{prop}
+	
+	
+	If $\mathcal{T}_1$ and $\mathcal{T}_2$ are two topologies on a set $X$, we say $\mathcal{T}_1$ is \textbf{\textit{weaker}} (or \textbf{\textit{coarser}}) and $\mathcal{T}_2$ \textbf{\textit{stronger}} (or \textbf{\textit{finer}}). $E\subseteq X$ is called \textbf{\textit{dense}} if $\overline{E}=X$ and \textbf{\textit{nowhere dense}} if $\overline{E}$ has empty interior. $X$ is called \textbf{\textit{separable}} if it has a countable dense subset. 
 	
 	\begin{enumerate}
 		\item[$\operatorname{T}_0$] If $x\neq y$, there is an open set containing $x$ but not $y$, or an open set containing $y$ but not $x$.
@@ -738,7 +913,7 @@ Let $X$ be a real or complex vector space.
 		\end{enumerate}
 	\end{thm}
 
-\section{Normed spaces}
+\subsection{Normed spaces}
 	Let $X$ be a real or complex vector space. A \textbf{\textit{norm}} on $X$ is a function $\Vert \cdot\Vert:X\to\R$ such that
 \begin{enumerate}
 	\item $\Vert x\Vert\geq0$ and $\Vert x\Vert=0$ if and only if $x=0$.
@@ -782,8 +957,9 @@ In fact, if $T$ is bounded it is uniformly continuous and even Lipschitz continu
 
 We denote by $L(X,Y)$ the space of bounded linear maps from $X$ to $Y$, which is a normed vector space with the \textbf{\textit{operator norm}}
 \begin{align*}
-	\Vert T\Vert&=\sup\{\Vert Tx\Vert:\Vert x\Vert=1\}\\
-	&=\sup\left\{\frac{\Vert tx\Vert}{\Vert x\Vert}:x\neq0\right\}\\
+	\Vert T\Vert&=\sup_{\substack{x\in X\\\Vert x\Vert\leq1}}\Vert Tx\Vert\\\\
+	&=\sup\{\Vert Tx\Vert:\Vert x\Vert=1\}\\
+	&=\sup\left\{\frac{\Vert Tx\Vert}{\Vert x\Vert}:x\neq0\right\}\\
 	&=\inf\{C:\Vert Tx\Vert\leq C\Vert x\Vert \text{ for all }x\in X\}
 \end{align*}
 \begin{prop}
@@ -794,7 +970,7 @@ We denote by $L(X,Y)$ the space of bounded linear maps from $X$ to $Y$, which is
 \end{proof}
 $T$ is \textbf{\textit{invertible}} if it bijective and $T^{-1}$ is bounded. It is called an isometry if $\Vert Tx\Vert=\Vert x\Vert$ for all $x\in X$. An isometry is injective but not necessarily surjective.
 
-If $X$ is a vector space over $K=\R,\C$, a \textbf{\textit{linear functional}}. is a linear map from $X$ to $K$. The space $X^*:=L(X,K)$ is called the \textbf{\textit{dual space}} of $X$. Since $K$ is complete, $X^*$ is complete with the operator norm.
+If $X$ is a vector space over $K=\R,\C$, a \textbf{\textit{linear functional}}. is a linear map from $X$ to $K$.
 
 \begin{prop}[Relationship between real and complex linear functionals]
 	Let $X$ be a vector space over $\C$. If $f$ is a complex linear functional on $X$,
@@ -802,7 +978,10 @@ If $X$ is a vector space over $K=\R,\C$, a \textbf{\textit{linear functional}}. 
 	Conversely, if $u$ is a real functional on $X$, then $f(x):=u(x)-iu(ix)$ is a complex linear functional, and if $X$ is normed, $\Vert u\Vert=\Vert f\Vert$.
 \end{prop}
 
-It is not obvious that there are any nonzero bounded linear functionals on an arbitrary normed vector space. If $X$ is a real vector space, \textbf{\textit{sublinear}} or \textbf{\textit{Minkoswky functional}} on $X$ is a map $p:X\to\R$ such that
+\section{Hahn-Banach theorems}
+
+\subsection{Analytic form of the Hahn-Banach theorem}
+It is not obvious that there are any nonzero bounded linear functionals on an arbitrary normed vector space. If $E$ is a real vector space, \textbf{\textit{sublinear}} or \textbf{\textit{Minkoswky functional}} on $E$ is a map $p:E\to\R$ such that
 
 \begin{equation}\label{eq:sublinear1}
 		p(\lambda x)=\lambda p(x)\qquad\forall x\in X\text{ and }\lambda\geq0
@@ -864,6 +1043,189 @@ and if $\lambda=-\mu<0$,
 \end{align*}
 Then $h\in P$, $h$ extends $f$ and $D(f)\subsetneq D(h)$, which is impossible since $f$ is maximal.
 \end{proof}
+
+An example of a sublinear functional is a \textbf{\textit{seminorm}}, which is a function that satisfies the first two conditions of being norm, but the third. If $p$ is a seminorm, 
+\begin{thm}[Complex Hahn-Banach]
+	Let $E$ be a complex vector space, $p$ a seminorm on $E$, $G\subseteq E$ a subspace of $E$ and $f$ a complex linear functional on $G$ such that $|g(x)|\leq p(x)\;\forall x\in G$. Then there exists a complex linear functional $f$ defined on all of $E$ that extends $g$ and $|f(x)|\leq p(x)$.
+\end{thm}
+
+The space of al continuous linear functionals on $E$, denoted by $E^*:=L(E,K)$, is called the \textbf{\textit{dual space}} of $E$. Since $K$ is complete, $X^*$ is complete with the operator norm. We denote the \textbf{\textit{dual norm}} (it remains for me to check wether this is the same as the operator norm) by
+\[\Vert f\Vert_{E^*}=\sup_{\substack{x\in E\\\Vert x\Vert\leq1}}|f(x)|=\sup_{\substack{x\in E\\\Vert x\Vert\leq1}}f(x)\]
+Given $f\in E^*$ and $x\in E$ we shall often write $\langle f,x\rangle$ instead of $f(x)$ and call $\langle-,-\rangle$ the \textbf{\textit{scalar product for the duality $E^*,E$}}.
+\begin{coro}\label{coro:HB1}
+	Let $G\subseteq E$ be a linear subspace. If $g:G\to\R$ is a continuos linear functional, then there exists $f\in E^*$ that extends $g$ and such that
+	\[\Vert f\Vert_{E^*}=\sup_{\substack{x\in G\\\Vert x\Vert\leq1}}=\Vert g\Vert_{G^*}\]
+\end{coro}
+\begin{proof}
+	$g(x)\leq p(x):=\Vert g\Vert_{G^*}\Vert x\Vert$, which is a sublinear functional.
+\end{proof}
+\begin{coro}\label{coro:HB2}
+	For every $x_0\in E$ there exists $f_0\in E^*$ such that
+	\[\Vert f_0\Vert=\Vert x_0\Vert\quad\text{and}\quad\langle f_0,x_0\rangle=\Vert x_0\Vert^2\]
+\end{coro}
+\begin{proof}
+	By \cref{coro:HB1} with $G=\R x_0$ and $g(tx_0)=t\Vert x_0\Vert^2$ so that $\Vert g\Vert_{G^*}=\Vert x_0\Vert$.
+\end{proof}
+While the element $f_0$ in \cref{coro:HB2} is in general not unique (excercise), a sufficient condition is that $E^*$ is \textbf{\textit{strictly convex}}, that is, $\Vert tx+(1-t)y\Vert<t\;\forall t\in(0,1),\forall x,y\in E$ with $\Vert x\Vert =\Vert y\Vert=1$ and $x\neq y$. Any Hilbert space and any $L^p(\Omega)$ for $1<p<\infty$ are.
+
+The (multivalued) \textbf{\textit{duality map}} for $x_0\in E$ is
+\[F(x_0)=\left\{f_0\in E^*:\Vert f_0\Vert=\Vert x_0\Vert \text{ and }\langle f,x_0\rangle=\Vert x_0\Vert^2\right\}\]
+
+\begin{coro}\label{coro:HB3}
+	For every $x\in E$ we have
+	\[\Vert x\Vert=\sup_{\substack{f\in E^*\\\Vert f\Vert\leq1}}|\langle f,x\rangle|=\max_{\substack{f\in E^*\\\Vert f\Vert\leq1}}|\langle f,x\rangle|\]
+\end{coro}
+\begin{proof}
+	Assuming $x\neq0$, if $\Vert f\Vert\leq1$, $\Vert \langle f,x\rangle\Vert\leq \Vert f\Vert\Vert x\Vert\leq\Vert x\Vert$, so
+	\[\sup_{\substack{f\in E^*\\\Vert f\Vert\leq1}}|\langle f,x\rangle|\leq\Vert x\Vert.\]
+	On the other hand, by \cref{coro:HB2} there is some $f_0\in E^*$ such that $\Vert f_0\Vert=\Vert x\Vert$ and $\langle f_0,x\rangle=\Vert x\Vert^2$. Set $f_1=f_0/\Vert x\Vert$ so that $\Vert f_1\Vert=1$ and $\langle f_1,x\rangle=\Vert x\Vert$.
+\end{proof}
+
+\subsection{Geometric forms of the Hahn-Banach theorem}
+An \textbf{\textit{affine hyperplane}} is a subset $H$ of $E$ of the form
+\[H=\{x\in E:f(x)=\alpha\}\]
+where if $f$ is a nonzero linear functional not necesarily continuous and $\alpha$ a is a real constant. We also write $H=[f=\alpha]$.
+\begin{prop}
+	The hyperplane $H=[f=\alpha]$ is closed if and only if $f$ is continuous.
+\end{prop}
+\begin{proof}
+	It is clear that if $f$ is continuous then $H$ is closed. Conversely…
+\end{proof}
+Let $A$ and $B$ be two subsets of $E$. We say that the hyperplane $H=[f=\alpha]$ \textbf{\textit{separates}} $A$ and $B$ if
+\[f(x)\leq\alpha\quad\forall x\in A\qquad\text{and}\qquad f(x)\geq\alpha\quad\forall x\in B\]
+We say \textbf{\textit{$H$ strictly separates}} $A$ and $B$ if there is some $\varepsilon>0$ such that
+\[f(x)\leq\alpha-\varepsilon\quad\forall x\in A\qquad\text{and}\qquad f(x)\geq\alpha+\varepsilon\quad\forall x\in B\]
+A subset $A\subseteq E$ is \textbf{\textit{convex}} if
+\[tx+(1-t)y\in A\quad\forall x,y\in A,\;\forall t\in[0,1].\]
+
+\begin{thm}[Hahn-Banach, first geometric form]\label{thm:HB-1stgeometric}
+	Let $A\subset E$ and $B\subset E$ be two nonempty convex subsets such that $A\cap B=\varnothing$. Assume that one of them is open. Then there exists a closed hyperplane that separates $A$ and $B$.
+\end{thm}
+\begin{lemma}
+	Let $C\subset E$ be an open convex set with $0\in C$. For every $x\in E$ set
+	\[p(x)=\inf\{\alpha>0:\alpha^{-1}x\in X\}\]
+	which is called the \textbf{\textit{Minkowski functional of $C$}} or the \textbf{\textit{gauge of $C$}}. Then $p$ is a sublinear functional, that is, satisfies \cref{eq:sublinear1,eq:sublinear2}, and also
+	\begin{enumerate}
+		\item there is a constant $M$ such that $0\leq p(x)\leq M\Vert x\Vert\;\forall x\in E$.
+		\item $C=\{x\in E:p(x)<1\}$. (In particular, if $C$ is the unit ball centered at $0$, then $p$ is just the norm.)
+	\end{enumerate}
+\end{lemma}
+\begin{lemma}\label{lemma:HB-1tstgeometric2}
+	Let $C\subset E$ be a nonempty open convex set and let $x_0\in E$ with $x_0\notin C$. Then there exists $f\in E^*$ such that $f(x)<f(x_0)\;\forall x\in C$. In particular, the hyperplane $[f=f(x_0)]$ separates $\{x_0\}$ and $C$.
+\end{lemma}
+\begin{proof}
+	After a translation we may assume that $0\in C$ and introduce the gauge $p$ of $C$. For the linear subspace $G=\R x_0$ and the linear functional $g:G\to\R$ defined by $g(t_0)=t\;(t\in\R)$ we have that $g(x)\leq p(x)\;(\forall x\in G)$. We may thus apply the Helly-Hahn-Banach theorem.
+\end{proof}
+\begin{proof}
+	(Of \cref{thm:HB-1stgeometric}). Set $C=A-B$ so that $C$ is convex (check!). $C$ is also open (since $C=\bigcup_{y\in B}(A-y)$) and $0\notin C$ (because $A\cap B=\varnothing$). By \cref{lemma:HB-1tstgeometric2} there exists $f\in E^*$ such that
+	\[f(z)\leq0\quad\forall z\in C\qquad\iff\qquad f(x)<f(y)\quad\forall x\in A\;\forall y\in B\]
+	Fixing a constant $\alpha$ satisfying
+	\[\sup_{x\in A}f(x)\leq \alpha\leq\inf_{y\in B}f(y)\]
+	we conclude that the hyperplane $[f=\alpha]$ separates $A$ and $B$.
+\end{proof}
+
+\begin{thm}[Hahn-Banach, second geometric form]\label{thm:HB-2ndgeometric}
+	Let $A\subset E$ and $B\subset E$ be two nonempty convex subsets such that $A\cap B=\varnothing$. Assume that $A$ is closed and $B$ is compact. Then there exists a closed hyperplane that strictly separates $A$ and $B$.
+\end{thm}
+\begin{proof}
+	Set $C=A-B$, so that $C$ is convex, closed (check!) and $0\notin C$. Hence there is some $r>0$ such that $B(0,r)\cap C=\varnothing$. By \cref{thm:HB-1stgeometric} there is a hyperplane that separates $B(0,r)$ and $C$. Therefore, there is some $f\in E^*$, $f\not\equiv0$ such that
+	\[f(x-y)\leq f(rz)\quad \forall x\in A,\quad \forall y\in B\quad\forall z\in B(0,1)\]
+	(Incomplete.)
+\end{proof}
+In infinite-dimensional vector spaces it is in general impossible to separate any two nonempty disjoint convex sets. In finite-dimensional vector spaces, however, it is always possible.
+
+\begin{coro}
+	Let $F\subset E$ be a linear subspace such that $\overline{F}\neq E$. Then there exists some $f\in E^*$, $f\not\equiv0$ such that
+	\[\langle f,x\rangle=0\quad\forall x\in F\]
+\end{coro}
+\begin{proof}
+	Let $x_0\in E$ with $x_0\notin\overline{E}$. Using \cref{thm:HB-2ndgeometric} with $A=\overline{F}$ and $B=\{x_0\}$ we find a closed hyperplane $[f=\alpha]$ that strictly separates $\overline{F}$ and $\{x_0\}$. We thus have
+	\[\langle f,x\rangle<\alpha\langle f,x_0\rangle\quad\forall x\in F\]
+	In particular $\langle f,x\rangle=0\;\forall x\in F$ since $\lambda\langle f,x\rangle<\alpha\;\forall\lambda\in \R$.
+\end{proof}
+By this corollary, we may prove that a linear subspace $F\subset E$ is dense by showing that every continuous linear functional that vanishes on $F$ must vanish in all of $E$.
+
+\subsection{The bidual $E^{**}$. Orthogonality relations.}
+Let $E$ be a normed vector space. Recall the norm on its dual space $E^*$ is
+\[\Vert f\Vert_{E^*}=\sup_{\substack{x\in E\\\Vert f\Vert\leq1}}|\langle f,x\rangle|.\]
+The \textbf{\textit{bidual}} space of $E$ is the dual of $E^*$ with norm
+\[\Vert\xi\Vert_{E^{**}}=\sup_{\substack{f\in E^*\\Vert f\Vert\leq1}}|\langle\xi,f\rangle|\quad\xi\in E^{**}\]
+There is a \textbf{\textit{canonical injection}} $J:E\to E^{**}$ defined as follows: given $x\in E$, the map $f\mapsto\langle f,x\rangle$ is a continuous linear functional on $E^*$; thus it is an element of $E^{**}$ which we denote by $Jx$. We have
+\[\langle Jx,f\rangle_{E^{**},E^*}=\langle f,x\rangle_{E^*,E}\quad\forall x\in x,\;\forall f\in E^{**}.\]
+It is clear that $J$ is linear and that $J$ is an isometry, that is, $\Vert Jx\Vert_{E^{**}}=\Vert x\Vert_E$. Indeed, by \cref{coro:HB3} we have
+\[\Vert x\Vert_{E^{**}}=\sup_{\substack{f\in E^*\\Vert f\Vert\leq1}}|\langle Jx,f\rangle|=\sup_{\substack{f\in E^*\\Vert f\Vert\leq1}}|\langle f,x\rangle|=\Vert x\Vert\]
+It may happen that $J$ is not surjective from $E$ onto $E^{**}$. However, it is convenient to identify $E$ with a subspace of $E^{**}$ using $J$. If $J$ turns out to be surjective we say $E$ is \textbf{\textit{reflexive}} and $E^{**}$ is identified with $E$.
+and if $N\subset E^*$ is a linear subspace we set
+\[N^\perp=\{x\in R:\langle f,x\rangle\;\forall f\in X\}\]
+If $M\subset E$ is a linear subspace, we set
+\[M^\perp=\{f\in E^*:\langle f,x\rangle=0\;\forall x\in M\}.\]
+Notice that $N^\perp$ is a subset of $E$ rather than of $E^{**}$. Both $M^\perp$ and $N^\perp$ a closed linear suspaces. We say $M^\perp$ (resp. $N$) is the \textbf{\textit{space orthogonoal to $M$ (resp. $N$)}}.
+\begin{prop}
+	Let $M\subset E$ be a linear subspace. Then
+	\[(M^\perp)^\perp=\overline{M}.\]
+	Let $N\subset E^*$ be a linear subspace. Then
+	\[(N^\perp)^\perp\supset \overline{N}.\]
+\end{prop}
+
+\section{The Baire Category Theorem}
+This theorem states that, in a complete metric space, a countable union of closed sets with empty interior has empty interior:
+\begin{thm}[Baire]
+	Let $X$ be a complete metric space and let $(X_n)_{n\geq1}$ be a sequence of closed subsets in $X$. Assume that
+	\[\Int X_n=\varnothing\;\text{for every }n\geq1\]
+	Then
+	\[\Int\left(\bigcup_{n=1}^\infty X_n\right)=\varnothing\]
+\end{thm}
+And there's also this other form of the same theorem:
+\begin{thm}[Baire]
+	Let $X$ be a nonempty complete metric space. Let $(X_n)_{n\geq1}$ be a sequence of closed subsets such that
+	\[\bigcup_{n=1}^\infty X_n=X.\]
+	Then there exists some $n_0$ such that $\Int X_{n_0}\neq\varnothing$.
+\end{thm}
+\begin{remark}
+	A subset $A\subset X$ has empty interior if and only if its complement $A^c$ is dense in $X$. Indeed, to see $A^c$ is dense in $X$ notice every point $x\in X$ has a neighbourhood intersecting $A^c$: since $A$ has empty interior, every open set containing $x\in A$ must intersect $A^c$. Conversely, if every point $x\in X$ has a neighbourhood intersecting $A^c$, there cannot be a point in the interior of $A$.
+\end{remark}
+\begin{proof}
+	(Of the first form.) Set $O_n=X^c_n$ so that $O_n$ is open and dense in $X$ for every $n\geq1$. To show $\bigcup_{n=1}^\infty X_n$ has empty interior, it suffices to show that its complement $G=\bigcap_{n=1}^\infty O_n$ is dense in $X$. Succintly, the procedure is to construct a sequence of a sequence of closed balls inside any given open set $\omega$ of $X$; one ball for every $O_n$. This produces a Cauchy sequence, whose limit is a point in $\omega\cap G$.
+\end{proof}
+\subsection{The Uniform Boundedness Principle}
+Let $E$ and $F$ be two normed vector spaces. Recall that the space of continuous (=linear) operators from $E$ into $F$ is denoted by $\mathcal{L}(E,F)$ and is equipped with the norm
+\[\Vert T\Vert_{\mathcal{L}(E,F)}=\sup_{\substack{x\in E\\\Vert x\Vert\leq1}}\Vert Tx\Vert=\inf_{\substack{x\in E\\\Vert Tx\Vert\leq c\Vert x\Vert}}c.\]
+\begin{thm}[Banach-Steinhaus, uniform boundedness principle]
+	Let $E$ and $F$ be two Banach spaces and let $(T_i)_{i\in I}$ be a family (not necessarily countable) of continuous linear operators from $E$ to $F$. Assume that
+	\begin{equation}\label{eq:UBP1}
+		\sup_{i\in I}\Vert T_ix\Vert<\infty\quad\forall x\in X
+	\end{equation}
+	Then
+	\[\sup_{i\in I}\Vert T_i\Vert_{\mathcal{L}(E,F)}<\infty.\]
+	In other words, there exists a constant $c$ such that
+	\[\Vert T_ix\Vert\leq c\Vert x\Vert\quad \forall x\in E\;\forall i\in I\]
+\end{thm}
+\begin{remark}
+	What's remarkable about this theorem is that from \textit{pointwise} (the norm of all the $T_ix$ is bounded at every $x$) estimates we obtain a \textit{global (uniform)} estimate: there is a unique bound for all the $T_i$.
+\end{remark}
+\begin{proof}
+	For every $n\geq 1$, let
+	\[X_n=\{x\in E:\forall i\in I, \;\Vert T_i\Vert\leq n\}\]
+	which is closed (why?) and by \cref{eq:UBP1} we have
+	\[\bigcup_{n=1}^\infty X_n=E.\]
+	It follows from the Baire category theorem that there is some $n_0\geq1$ such that $\Int(X_0)\neq\varnothing$. Pick a ball $B(x_0,r)\subset X_{n_0}$, so that for every $z\in B(0,1)$ and $i\in I$,
+	\begin{align*}
+		\Vert T_i(z)\Vert&=r^{-1}\Vert T(x_0+rz)-T(x_0)\Vert\\
+		&\leq r^{-1}(n_0+n_0).
+	\end{align*}
+	So
+	\[\sup_{i\in I}\Vert T_i\Vert_{\mathcal{L}(E,F)}=\sup_{i\in I}\left(\sup_{z\in B(0,1)}\Vert T_iz\Vert_{F}\right)\leq r^{-1}(n_0+n_0)<\infty.\]
+\end{proof}
+
+
+
+
+
+
+
+
+
+\iffalse
 \clearpage
 \section{Exercises}
 \begin{exer}
@@ -929,6 +1291,6 @@ so $\Vert A\Vert\geq\Vert\varphi\Vert_1$ and we are finished.
 	\item 
 	\end{enumerate}
 \end{proof}
-
+\fi
 %	\printbibliography
 \end{document}
