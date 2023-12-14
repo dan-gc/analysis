@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  12 DEC 2023 12:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  13 DEC 2023 20:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1185,35 +1185,35 @@ Package cleveref Info: `amsthm' support loaded on input line 3026.
 \c@thm=\count456
 \c@exer=\count457
 \c@remark=\count458
-\c@cl=\count459
+\c@claim=\count459
 \@quotelevel=\count460
 \@quotereset=\count461
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 1
-15.
+16.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 ) (./analysis.aux)
 \openout1 = `analysis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1231,8 +1231,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'analysis.bbl' found.
 
 (./analysis.bbl)
-Package biblatex Info: Reference section=0 on input line 115.
-Package biblatex Info: Reference segment=0 on input line 115.
+Package biblatex Info: Reference section=0 on input line 116.
+Package biblatex Info: Reference segment=0 on input line 116.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1293,7 +1293,7 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 115.
+Package hyperref Info: Link coloring ON on input line 116.
 
 (./analysis.out) (./analysis.out)
 \@outlinefile=\write5
@@ -1319,45 +1319,45 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 136.
+(hyperref)                removing `math shift' on input line 137.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 136.
+(hyperref)                removing `\sigma' on input line 137.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 136.
+(hyperref)                removing `math shift' on input line 137.
 
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
-42.
+43.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for U+dutchcal on input lin
-e 142.
+e 143.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/dutchcal/udutchcal.fd
 File: udutchcal.fd 2011/06/16 Fontinst v1.933 font definitions for U/dutchcal.
 )
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 10.0pt on input line 142.
+(Font)              scaled to size 10.0pt on input line 143.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 7.0pt on input line 142.
+(Font)              scaled to size 7.0pt on input line 143.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 5.0pt on input line 142.
+(Font)              scaled to size 5.0pt on input line 143.
 Package hyperref Info: bookmark level for unknown prop defaults to 0 on input l
-ine 163.
+ine 164.
 Package hyperref Info: bookmark level for unknown coro defaults to 0 on input l
-ine 169.
+ine 170.
  [2
 
 ]
 Package hyperref Info: bookmark level for unknown thm defaults to 0 on input li
-ne 184.
+ne 185.
 
 [3]
-Overfull \hbox (13.34575pt too wide) in paragraph at lines 234--235
+Overfull \hbox (13.34575pt too wide) in paragraph at lines 235--236
 []\OT1/ppl/m/n/10 If $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 A[]\OMS/cmsy/m/n/10 g[
 ]$ \OT1/ppl/m/n/10 is a se-quence of dis-joint sets in $\U/dutchcal/m/n/10 A$ \
 OT1/ppl/m/n/10 such that $[][] \OMS/cmsy/m/n/10 2 \U/dutchcal/m/n/10 A$\OT1/ppl
@@ -1365,12 +1365,12 @@ OT1/ppl/m/n/10 such that $[][] \OMS/cmsy/m/n/10 2 \U/dutchcal/m/n/10 A$\OT1/ppl
  []
 
 [4] [5]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 285
+LaTeX Font Info:    Trying to load font information for U+euf on input line 286
 .
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Overfull \hbox (0.94196pt too wide) in paragraph at lines 316--317
+Overfull \hbox (0.94196pt too wide) in paragraph at lines 317--318
 [][]\OT1/ppl/b/n/10 Proposition 1.22. [][]\OT1/ppl/m/n/10 If $\OMS/cmsy/m/n/10 
 f\OML/cmm/m/it/10 f[]\OMS/cmsy/m/n/10 g$ \OT1/ppl/m/n/10 is a se-quence of $[]$
 -valued mea-sur-able func-tions on $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \U/dut
@@ -1378,44 +1378,44 @@ chcal/m/n/10 M\OT1/cmr/m/n/10 )$\OT1/ppl/m/n/10 ,
  []
 
 [6]
-<fig1.png, id=275, 1912.14375pt x 946.53625pt>
+<fig1.png, id=290, 1912.14375pt x 946.53625pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 368.
+Package pdftex.def Info: fig1.png  used on input line 369.
 (pdftex.def)             Requested size: 386.67296pt x 191.39812pt.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 9.0pt on input line 369.
+(Font)              scaled to size 9.0pt on input line 370.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 6.0pt on input line 369.
-<fig2.png, id=276, 1912.14375pt x 946.53625pt>
+(Font)              scaled to size 6.0pt on input line 370.
+<fig2.png, id=291, 1912.14375pt x 946.53625pt>
 File: fig2.png Graphic file (type png)
 <use fig2.png>
-Package pdftex.def Info: fig2.png  used on input line 375.
+Package pdftex.def Info: fig2.png  used on input line 376.
 (pdftex.def)             Requested size: 386.67296pt x 191.39812pt.
  [7] [8 <./fig1.png (PNG copy)> <./fig2.png (PNG copy)>]
-Overfull \hbox (8.193pt too wide) in paragraph at lines 458--459
+Overfull \hbox (8.193pt too wide) in paragraph at lines 459--460
 [][]\OT1/ppl/m/n/10 Theorem 1.27 (Lebesgue). [][]Ev-ery func-tion of bounded va
 ri-a-tion posses a fi-nite deriva-
  []
 
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
-line 475.
+line 476.
 [9] [10]
 Package hyperref Info: bookmark level for unknown exer* defaults to 0 on input 
-line 539.
+line 540.
  [11
 
 ] [12] [13] [14] [15] [16] [17]
-Overfull \hbox (3.04297pt too wide) in paragraph at lines 756--757
+Overfull \hbox (3.04297pt too wide) in paragraph at lines 757--758
 [][]\OT1/ppl/m/n/10 Theorem 2.26 (Com-plex Stone-Weirstrass The-o-rem). [][]Let
  $\OML/cmm/m/it/10 X$ \OT1/ppl/m/n/10 be a com-pact Haus-dorff space.
  []
 
 [18]
 Package hyperref Info: bookmark level for unknown examples defaults to 0 on inp
-ut line 776.
+ut line 777.
 
-Overfull \hbox (6.32236pt too wide) in paragraph at lines 784--785
+Overfull \hbox (6.32236pt too wide) in paragraph at lines 785--786
 []\OT1/ppl/m/n/10 Let $\OML/cmm/m/it/10 Y$ \OT1/ppl/m/n/10 be the closed in-ter
 -val $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 a; b\OT1/cmr/m/n/10 ]$\OT1/ppl/m/n/10 ,
  $\OML/cmm/m/it/10 S$ \OT1/ppl/m/n/10 the Lebesgue mea-sur-able sets and $\OML/
@@ -1423,7 +1423,7 @@ cmm/m/it/10 ^^V$ \OT1/ppl/m/n/10 the Lebesgue
  []
 
 
-Overfull \hbox (2.39267pt too wide) in paragraph at lines 784--785
+Overfull \hbox (2.39267pt too wide) in paragraph at lines 785--786
 \OT1/ppl/m/n/10 mea-sure. Then, for the equiv-a-lence clasess of square-integra
 ble func-tions (complex-
  []
@@ -1432,10 +1432,10 @@ ble func-tions (complex-
 
 ]
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 797.
+LaTeX Warning: Command \textendash invalid in math mode on input line 798.
 
 [20]
-Overfull \hbox (2.9891pt too wide) in paragraph at lines 833--834
+Overfull \hbox (2.9891pt too wide) in paragraph at lines 834--835
 []\OT1/ppl/m/n/10 In Rie-man-nian ge-om-e-try this is called \OT1/ppl/b/it/10 r
 ais-ing an in-dex \OT1/ppl/m/n/10 of a 1-form. In-deed, $\OML/cmm/m/it/10 ![] \
 OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^C[](\OML/cmm/m/it/10 T[]M\OT1/cmr/m/n/10 )$
@@ -1443,7 +1443,7 @@ OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 ^^C[](\OML/cmm/m/it/10 T[]M\OT1/cmr/m/n/10 )$
  []
 
 [21] [22] [23] [24] [25] [26] [27]
-Overfull \hbox (6.3239pt too wide) in paragraph at lines 1102--1103
+Overfull \hbox (6.3239pt too wide) in paragraph at lines 1103--1104
 [][]\OT1/ppl/m/n/10 Theorem 4.8 (Hah-n-Banach, first ge-o-met-ric form). [][]Le
 t $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^Z \OML/cmm/m/it/10 E$ \OT1/ppl/m/n/10 
 and $\OML/cmm/m/it/10 B \OMS/cmsy/m/n/10 ^^Z \OML/cmm/m/it/10 E$ \OT1/ppl/m/n/1
@@ -1452,37 +1452,46 @@ and $\OML/cmm/m/it/10 B \OMS/cmsy/m/n/10 ^^Z \OML/cmm/m/it/10 E$ \OT1/ppl/m/n/1
 
 [28]
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 12.0pt on input line 1148.
+(Font)              scaled to size 12.0pt on input line 1149.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1148.
+(Font)              scaled to size 8.0pt on input line 1149.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1148.
+(hyperref)                removing `math shift' on input line 1149.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1148.
+(hyperref)                removing `superscript' on input line 1149.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1148.
+(hyperref)                removing `math shift' on input line 1149.
 
-[29] [30]
+[29]
+Overfull \hbox (18.8284pt too wide) in paragraph at lines 1171--1171
+|[]\OT1/ppl/b/n/14.4 The Uni-form Bound-ed-ness Prin-ci-ple and the Closed Grap
+h
+ []
+
+[30]
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input
- line 1185.
- [31] [32] (./analysis.aux)
+ line 1187.
+ [31] [32] [33] [34]
+Package hyperref Info: bookmark level for unknown claim defaults to 0 on input 
+line 1318.
+ [35] (./analysis.aux)
 Package rerunfilecheck Info: File `analysis.out' has not changed.
-(rerunfilecheck)             Checksum: 292C4794C90A3260D77E824AC1D9E27C;4967.
+(rerunfilecheck)             Checksum: D5D44F67DD052E1742A17EACC22F3B89;6148.
 Package logreq Info: Writing requests to 'analysis.run.xml'.
 \openout1 = `analysis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37969 strings out of 476025
- 771931 string characters out of 5790018
- 1869388 words of memory out of 5000000
- 57463 multiletter control sequences out of 15000+600000
+ 38039 strings out of 476025
+ 773059 string characters out of 5790018
+ 1871388 words of memory out of 5000000
+ 57491 multiletter control sequences out of 15000+600000
  535823 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,85p,1883b,1136s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1526,10 +1535,10 @@ texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/20
 f-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023/texmf-dist
 /fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/
 type1/urw/palatino/uplri8a.pfb>
-Output written on analysis.pdf (32 pages, 454091 bytes).
+Output written on analysis.pdf (35 pages, 467361 bytes).
 PDF statistics:
- 814 PDF objects out of 1000 (max. 8388607)
- 721 compressed objects within 8 object streams
- 356 named destinations out of 1000 (max. 500000)
- 247 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 902 PDF objects out of 1000 (max. 8388607)
+ 805 compressed objects within 9 object streams
+ 398 named destinations out of 1000 (max. 500000)
+ 271 words of extra memory for PDF output out of 10000 (max. 10000000)
 

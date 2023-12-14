@@ -78,6 +78,7 @@
 \declaretheoremstyle[headfont=\color{brightcerulean}\normalfont\bfseries,]{colored5}
 \declaretheoremstyle[headfont=\color{lavendermagenta}\normalfont\bfseries,]{colored6}
 \declaretheoremstyle[headfont=\color{blue-violet}\normalfont\bfseries,]{colored7}
+\declaretheoremstyle[headfont=\color{green(ncs)}\normalfont\bfseries,]{colored8}
 
 \declaretheorem[style=colored1,numberwithin=section,name=Theorem]{thm}
 \declaretheorem[style=colored2,numberwithin=section,numberlike=thm,name=Proposition]{prop}
@@ -88,12 +89,12 @@
 \declaretheorem[style=colored6,numberwithin=section,name=Exercise]{exer}
 \declaretheorem[style=colored6,numbered=no,name=Exercise]{exer*}
 \declaretheorem[style=colored7,numberwithin=section,name=Remark]{remark}
+\declaretheorem[style=colored8,numberwithin=section,name=Claim]{claim}
 
 \numberwithin{equation}{section}
 
 
 \newtheorem*{defn}{Definition}
-\newtheorem{cl}{Claim}
 \newtheorem*{question}{question}
 
 \newcommand{\R}{\mathbb{R}}
@@ -1167,7 +1168,8 @@ Notice that $N^\perp$ is a subset of $E$ rather than of $E^{**}$. Both $M^\perp$
 	\[(N^\perp)^\perp\supset \overline{N}.\]
 \end{prop}
 
-\section{The Baire Category Theorem}
+\section{The Uniform Boundedness Principle and the Closed Graph Theorem}
+\subsection{The Baire Category Theorem}
 This theorem states that, in a complete metric space, a countable union of closed sets with empty interior has empty interior:
 \begin{thm}[Baire]
 	Let $X$ be a complete metric space and let $(X_n)_{n\geq1}$ be a sequence of closed subsets in $X$. Assume that
@@ -1216,14 +1218,140 @@ Let $E$ and $F$ be two normed vector spaces. Recall that the space of continuous
 	So
 	\[\sup_{i\in I}\Vert T_i\Vert_{\mathcal{L}(E,F)}=\sup_{i\in I}\left(\sup_{z\in B(0,1)}\Vert T_iz\Vert_{F}\right)\leq r^{-1}(n_0+n_0)<\infty.\]
 \end{proof}
+\begin{remark}
+	Recall that the pointwise limit of continuous functions need not be continuous. The former theorem dos not imply that $\Vert T_n-T\Vert_{\mathcal{L}(E,F)}$.
+\end{remark}
+\begin{coro}
+	Let $E$ and $F$ de two Banach spaces. Let $(T_n)$ be a sequence of continuous linear operators from $E$ to $F$ such that for every $x\in E$, $T_nx$ converges to a limit denoted by $Tx$. Then
+	\begin{enumerate}
+		\item $\sup_n\Vert T_n\Vert_{\mathcal{L}(E,F)}<\infty$ (uniform boundedness principle),
+		\item $T\in\mathcal{L}(E,F)$,
+		\item $\Vert T\Vert_{\mathcal{L}(E,F)}\leq\liminf_{n\to\infty}\Vert T_n\Vert_{\mathcal{L}(E,F)}$. (Contrary, I think, to $\lim_{n\to \infty}\Vert T_n\Vert=\Vert T\Vert$ if convergence was uniform).
+	\end{enumerate}
+\end{coro}
+\begin{coro}
+	Let $G$ be a Banach space and let $B$ be a subset of $G$. Assume that
+	\begin{equation}\label{eq:UBTcoro1}
+		\text{for every }f\in G^*\text{ the set }f(B)=\{\langle f,x\rangle:x\in B\}\text{ is bounded}
+	\end{equation}
+	then
+	\[B\text{ is bounded}.\]
+\end{coro}
+\begin{proof}
+	Define a family of linear operators on $G^*$ indexed by $B$ as
+	\[T_bf=\langle f,b\rangle.\]
+	By \cref{eq:UBTcoro1},
+	\[\sup_{b\in B}|T_b(f)<\infty\quad\forall f\in E\]
+	so that by the uniform boundedness theorem there exists a constant $c$ such that
+	\[|\langle f,b\rangle|\leq c\Vert f\Vert\quad\forall f\in G^*\;\forall b\in B\]
+	and by \cref{coro:HB3},
+	\[\Vert b\Vert=\sup_{\substack{f\in G^*\\\Vert f\Vert\leq 1}}|\langle f,b\rangle\leq c\]
+\end{proof}
+\begin{remark}
+	To prove that a set $B$ is bounded it suffices to \textit{look} at $B$ through the bounded linear functionals.
+\end{remark}
+\begin{coro}
+	Let $G$ be a Banach space and let $B^*$ be a subset of $G^*$. Assume that
+	\begin{equation}\label{eq:UBTcoro2}
+		\text{for every }x\in G\text{ the set }\langle B^*,x\rangle=\{\langle f,x\rangle:f\in B^*\}\text{ is bounded}
+	\end{equation}
+	then
+	\[B^*\text{ is bounded}.\]
+\end{coro}
+\begin{proof}
+	Define for every $b\in B^*$
+	\[T_b(x)=\langle b,x\rangle\quad\forall x\in G\]
+	so that there is a constant $c$ such that
+	\[|\langle b,x\rangle|\leq c\Vert x\Vert\quad\forall b\in B^*,\forall x\in G.\]
+	And this time by definition of operator norm we have
+	\[\Vert b\Vert=\sup_{\substack{x\in G\\\Vert x\Vert\leq 1}}|\langle b,x\rangle|\leq c\quad\forall b\in B^*.\]
+\end{proof}
+\begin{remark}
+	In these last two proofs it has become obvious how the norm of a vector can be described in terms of operators, and, dually, the norm of an operator can be described in terms of points. Recall \cref{coro:HB3} is a consequence of the Hahn-Banach theorem.
+\end{remark}
 
+\subsection{The Open Mapping Theorem and the Closed Graph Theorem}
+Here are two basic results due to Banach.
+\begin{thm}[Open mapping theorem]\label{thm:OMT}
+	\textit{A surjective continuous linear operator between two Banach spaces is an open map.}
+	
+	Let $E$ and $F$ be two Banach spaces and $T$ be a linear operator from $E$ into $F$ that is surjective. Then there exists a constant $c>0$ such that
+	\begin{equation}\label{eq:OMT}
+		T(B_E(0,1))\supset B_F(0,c)
+	\end{equation}
+\end{thm}
+\begin{remark}
+	First let us make sure that \cref{eq:OMT} implies that $T$ is open. Let $U$ be open in $E$ and fix any point $y_0\in T(U)$, so that there is some $x_0\in U$ such that $Tx_0=y_0$. Choose a ball $x_0+B(0,r)=B(x_0,r)\subset U$. Then
+	\begin{alignat*}{2}
+		&&y_0+T(B(0,r))&\subset T(U)\\
+		\implies && T(B(0,n))&\subset -y_0+T(U)\\
+		\implies &&r^{-1}T(B(0,1))&\subset -r^{-1}y_0+r^{-1}T(U).
+	\end{alignat*}
+	And by \cref{eq:OMT} we obtain
+	\begin{alignat*}{2}
+		&&r^{-1}B_F(0,c)&\subset -r^{-1}y_0+r^{-1}T(U)\\
+		\implies&& B(0,rc)&\subset -y_0+T(U)\\
+		\implies&& B(y_0,rc)&\subset T(U).
+	\end{alignat*}
+\end{remark}
+\begin{coro}\label{coro:OMT1}
+	Let $E$ and $F$ be two Banach spaces and let $T$ be a continuous linear operator from $E$ into $F$ that is bijective. Then $T^{-1}$ is also continuous.
+\end{coro}
+\begin{proof}[Proof of \cref{coro:OMT1}]
+	Since $T$ is injective, choosing a vector $Tx\in B_F(0,c)$ implies its only preimage $x$ is in $B(0,1)$, so $\Vert x\Vert<1$. By {\color{orange} homogeneity},
+	\[\Vert x\Vert\leq\frac{1}{c}\Vert Tx\Vert\]
+	so that $T^{-1}$ is continuous.	
+\end{proof}
+\begin{coro}\label{coro:OMT2}
+	Let $E$ be a vector space provided with two norms $\Vert\;\Vert_1$ and $\Vert\;\Vert_2$. Assume that $E$ is a Banach space for \textit{both} norms and that there exists a constant $C\geq0$ such that
+	\[\Vert x\Vert_2\leq C\Vert x\Vert_1\quad\forall x\in E.\]
+	Then the two norms are equivalent, that is, there is a constant $c>0$ such that
+	\[\Vert x\Vert_1\leq c\Vert x\Vert_2\quad\forall x\in E.\]
+	(That is, for both inequalities
+	\[c^{-1}\Vert x\Vert_1\leq \Vert x\Vert_2\leq C\Vert x\Vert_1\quad\forall x\in E)\]
+	to hold it suffices that the inequality on the right side to holds.)
+\end{coro}
+\begin{proof}[Proof of \cref{coro:OMT2}]
+	By \cref{coro:OMT1} with $E=(E,\Vert\;\Vert_1)$, $F=(E,\Vert\;\Vert_2)$ and $T=\Id$. (That is, the two norms induce the same topology?)
+\end{proof}
+\begin{proof}[Proof of \cref{thm:OMT}]
+	\begin{claim}\label{claim:OMT1}
+		Assume that $T$ is a linear surjective operator from $E$ onto $F$. Then there exists a constant $c>0$ such that
+		\begin{equation}\label{eq:OMTclaim1}
+			\overline{T(B(0,1))}\supset B(0,2c).
+		\end{equation}
+	\end{claim}
+	\begin{proof}[Proof of \cref{claim:OMT1}]
+		[Uses Baire category theorem.]
+	\end{proof}
+	\begin{claim}\label{claim:OMT2}
+		Assume that $T$ is a continuous linear operator from $E$ into $F$ that satisfies \cref{eq:OMTclaim1}. Then
+		\begin{equation}\label{eq:OMTclaim2}
+			T(B(0,1))\supset B(0,c).
+		\end{equation}
+		\end{claim}
+		\begin{proof}[Proof of \cref{claim:OMT2}]
+			[Uses Cauchy sequences.] (Compare \cref{eq:OMTclaim2,eq:OMT}.)
+		\end{proof}
+\end{proof}
 
+\begin{thm}[Closed graph theorem]
+	Let $E$ and $F$ be two Banach spaces. Let $T$ be a linear operator from $E$ into $F$. Assume that the graph of $T$, denoted by $G(T)$, is closed in $E\times F$. Then $T$ is continuous.
+\end{thm}
+\begin{remark}
+	The converse is true: the graph of any continuous map is closed.
+\end{remark}
+\begin{proof}
+	Consider, on $E$ the two norms
+	\[\Vert x\Vert_1=\Vert x\Vert_E+\Vert x\Vert_F\quad\text{and}\quad\Vert x\Vert_2=\Vert x\Vert_E\]
+	($\Vert\;\Vert_1$ is called the \textbf{\textit{graph norm}}).
+	
+	{\color{orange}Then prove these two norms are equivalent. (Check details.)}
+	
+	It is easy to check that $E$ is a Banach space with $\Vert\;\Vert_1$. Since it is also a Banach space with $\Vert\;\Vert_2$, it follows from \cref{coro:OMT2} that the two norms are equivalent and thus there exists a constant $c>0$ such that $\Vert x\Vert_1\leq c\Vert x\Vert_2$. We conclude that $\Vert Tx\Vert_F\leq c\Vert x\Vert_E$. 
+\end{proof}
 
-
-
-
-
-
+\subsection{An introduction to Unbounded Linear Operators. Definition of the Adjoint}
 
 \iffalse
 \clearpage
