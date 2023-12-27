@@ -582,7 +582,7 @@ Let $X$ be a nonempty set.
 	\end{thm}
 	A set $A$ is \textbf{\textit{countably compact}} if every infinite subset of $A$ has a limit point in $A$. All compact sets are countably compact. $A$ is \textbf{\textit{sequentially compact}} if every sequence in $A$ has a subsequence that converges to a point in $A$. In a metric space, compactness is equivalent to countable and sequential compactness.
 	
-	\begin{thm} Let $(X,\rho)$ be a metric space and $A\subseteq X$.
+	\begin{thm} \label{thm:compactness-properties} Let $(X,\rho)$ be a metric space and $A\subseteq X$.
 		\begin{enumerate}
 			\item $A$ is relatively compact if and only if a convergent subsequence can be selected from every sequence of points in $A$. (We do not claim that the limit point is a member of $A$.)
 			\item If $A$ is relatively compact, it is also totally bounded.
@@ -619,7 +619,7 @@ Let $X$ be a nonempty set.
 	\end{prop}
 	
 	
-	If $\mathcal{T}_1$ and $\mathcal{T}_2$ are two topologies on a set $X$, we say $\mathcal{T}_1$ is \textbf{\textit{weaker}} (or \textbf{\textit{coarser}}) and $\mathcal{T}_2$ \textbf{\textit{stronger}} (or \textbf{\textit{finer}}). $E\subseteq X$ is called \textbf{\textit{dense}} if $\overline{E}=X$ and \textbf{\textit{nowhere dense}} if $\overline{E}$ has empty interior. $X$ is called \textbf{\textit{separable}} if it has a countable dense subset. 
+	If $\mathcal{T}_1$ and $\mathcal{T}_2$ are two topologies on a set $X$, we say $\mathcal{T}_1$ is \textbf{\textit{weaker}} (or \textbf{\textit{coarser}}) and $\mathcal{T}_2$ \textbf{\textit{stronger}} (or \textbf{\textit{finer}}) if $\mathcal{T}_1\subseteq\mathcal{T}_2$. $E\subseteq X$ is called \textbf{\textit{dense}} if $\overline{E}=X$ and \textbf{\textit{nowhere dense}} if $\overline{E}$ has empty interior. $X$ is called \textbf{\textit{separable}} if it has a countable dense subset. 
 	
 	\begin{enumerate}
 		\item[$\operatorname{T}_0$] If $x\neq y$, there is an open set containing $x$ but not $y$, or an open set containing $y$ but not $x$.
@@ -1466,7 +1466,7 @@ If a sequence $(x_n)$ in $E$ converges to $x$ in the weak topology we write $x_n
 	Usually, in infinite-dimensional spaces, there exist sequences that converge weakly and do not converge strongly. For example, if $E^*$ is separable or if $E$ is reflexive, one can construct a sequence $(x_n)$ in $E$ such thaat $\Vert x_n\Vert =1$ and $x_n\rightharpoonup0$. However, there are spaces such as $\ell^1$ with the unusual property that every weakly converent sequence is strongly convergent. Recall that two metrizable spaces with the same convergent sequences have identical topologies, but two topological spaces with the same convergent sequences need not have identical topologies.
 \end{remark}
 
-\begin{thm}
+\begin{thm}\label{thm:convex-sets-closed-weak-strong-topologies}
 	Let $C$ be a convex subset of $E$. Then $C$ is closed in the weak topology if and only it it is closed in the strong topology.
 \end{thm}
 \begin{proof}
@@ -1495,7 +1495,7 @@ If a sequence $(x_n)$ in $E$ converges to $x$ in the weak topology we write $x_n
 For every $x\in E$ consider the linear functional in $E^{**}$ defined by $f\mapsto\langle f,x\rangle$. The \textbf{\textit{weak* $\sigma(E^*,E)$}} is the weakest topology associated to the former collection of funcionals as $x$ runs through $E$. It is clear that $\sigma(E^*,E)$ is coarser than the usual weak topology of $E^*$, denoted by $\sigma(E^*,E^{**})$.
 
 \begin{remark}
-	The hysteria over weak topologies is explained by the fact that there are more compact sets in a weaker topology.
+	The hysteria over weak topologies is explained by the fact that there are more compact sets in a weaker topology. The closed unit ball $B_{E^*}$ \textit{is never compact in the strong topology (unless $E$ is finite-dimensional)}; however, it is always compact in the weak* by the Banach-Algolou-Bourbaki theorem, \cref{thm:BAB}
 \end{remark}
 
 \begin{prop}
@@ -1510,7 +1510,7 @@ For every $x\in E$ consider the linear functional in $E^{**}$ defined by $f\maps
 	Then $V$ is a neighbourhood of $f_0$ for the weak* topology. Moreover, we obtain a \textbf{basis of neighbourhoods} of $f_0$ for the weak* topology by varying $\varepsilon,k$ and the $x_i$ in $E$.
 \end{prop}
 If a sequence $(f_n)$ converges to $f$ in the weak* topology, we write $f_n\overset{*}{\rightharpoonup}f$.
-\begin{prop}
+\begin{prop} Let $(f_n)$ be a sequence in $E^*$. Then
 	\begin{enumerate}
 		\item $f_n\overset{*}{\rightharpoonup}f \iff \langle f_n,x\rangle\to\langle f,x\rangle\;\forall x\in E$.
 		\item $f_n\to f\implies f_n\rightharpoonup f\implies f_n\overset{*}{\rightharpoonup}f$.
@@ -1524,10 +1524,77 @@ If a sequence $(f_n)$ converges to $f$ in the weak* topology, we write $f_n\over
 \begin{remark}	
 	If the canonical injection $J$ is not surjective, the weak* topology is strictly coarser than the topology $\sigma(E^*,E^{**})$. (This requires two propositions not listed.)
 \end{remark}
-\begin{thm}[Banach-Alaoglu-Bourbaki]
+\begin{thm}[Banach-Alaoglu-Bourbaki]\label{BAB}
 	The closed unit ball $B_{E^*}=\{f\in E^*:\Vert f\Vert\leq1\}$ is compact in the weak* topology.
 \end{thm}
+\begin{proof}
+	Considering the space of all functions from $E$ into $\R$ and equipping it with the product (=Tychonoff, pointwise convergence) topology, in which we may embed $E^*$ homeomorphically (using the weak* topology). Compacteness is then checked with the product topology in the space of all functions.
+\end{proof}
 
+\section{Reflexive spaces}
+Recall that the \textbf{\textit{canonical injection}} $J:E\to E^{**}$ is defined as follows: given $x\in E$, the map $f\mapsto\langle f,x\rangle$ is a continuous linear functional on $E^*$; thus it is an element of $E^{**}$ which we denote by $Jx$. We have
+\[\langle Jx,f\rangle_{E^{**},E^*}=\langle f,x\rangle_{E^*,E}\quad\forall x\in x,\;\forall f\in E^{**}.\]
+It is clear that $J$ is linear and that $J$ is an isometry, that is, $\Vert Jx\Vert_{E^{**}}=\Vert x\Vert_E$. Since it may happen that $J$ is not surjective, we say $E$ is \textbf{\textit{reflexive}} when $J$ is surjective, in which case we usually identify $E$ with $E^{**}$.
+
+\begin{remark}
+	Finite-dimensional spaces are reflexive since a space and its dual are of the same dimension ($\dim E=\dim E^*=\dim E^{**}$). $L^p$ and $\ell^p$ are reflexive for $1<p<\infty$. Hilbert spaces are reflexive. However, $L^1$, $L^\infty$, $\ell^1$ and $\ell^\infty$, as well as $C(K)$, the space of continuous functions on an infinite metric compact space $K$, are not reflexive.
+\end{remark}
+\begin{remark}
+	There may be other surjective isometries from $E$ to $E^{**}$, so that out discussion is only true for $J$.
+\end{remark}
+
+\begin{thm}[Kakutani]
+	Let $E$ be a Banach space. Then $E$ is reflexive if and only if $B_E=\{x\in E:\Vert x\Vert\leq1\}$ is compact in the weak topology.
+\end{thm}
+\begin{proof}\leavevmode
+	
+	$(\implies)$. Using Banach-Algaolu.
+	
+	$(\impliedby)$. Using the following two lemmas.
+\begin{lemma}[Helly]
+	(An equivalence between two conditions that is later used in the context of \cref{prop:neighbourhoods-weak-topology}.)
+\end{lemma}
+\begin{lemma}[Goldstine]
+	Let $E$ be any Banach space. Then $J(B_E)$ is dense in $B_{E^{**}}$ with respect to the topology $\sigma(E^{**},E^*)$, and consequently $J(E)$ is dense in $E^{**}$ in the topology $\sigma(E^{**},E^*)$.
+\end{lemma}
+\begin{proof}
+	Helly's lemma, \cref{prop:neighbourhoods-weak-topology}.
+\end{proof}
+%\begin{remark}
+%	Notice that $J(B_E)$ is closed in $B_{E^{**}}$ in the strong topology, since for any sequence $\xi_n=J(x_n)\to\xi$ we obtain a Cauchy sequence $(x_n)$ (since $J$ is an isometry). Therefore, $x_n\to x$, so that $\xi=Jx$. It follows that if $J(B_E)$ is dense in $B_{E^{**}}$, then precisely $J(B_E)=B_{E^{**}}$, which in turn implies that $E$ is reflexive. 
+%\end{remark}
+
+To conclude notice that since $J$ is always continuous (check!), if $B_E$ is compact in the weak topology, then $J(B_E)$ as well with $\sigma(E^{**},E^*)$, and in particular it is closed. By Goldstine's lemma, $J(B_E)$ is dense in $B_{E^{**}}$, so that $J(B_E)=B_{E^{**}}$, which in turn implies that $J(E)=E^{**}$, that is, $E$ is reflexive.
+\end{proof}
+
+\begin{thm}
+	Assume that $E$ is a reflexive Banach space and let $(x_n)$ be a bounded sequence in $E$. Then there exists a subsequence $(x_{n_k})$ that converges in the weak topology.
+\end{thm}
+\begin{thm}
+	Assume that $E$ is a Banach space such that every bounded sequence in $E$ admits a weakly convergent subsequence. Then $E$ is reflexive.
+\end{thm}
+\begin{remark}
+	We recall \cref{thm:compactness-properties}. Let $(X,\rho)$ be a metric space and $A\subseteq X$. A convergent subsequence can be selected out of any sequence of points in $A$ if and only if $A$ is relatively compact, that is, its closure $\overline{A}$ is compact. Further, if $A$ is relatively compact, it is totally bounded (in the sense that there exists a finite $\varepsilon$-net with respect to $A$ for every $\varepsilon>0$). If $(X,\rho)$ is complete and $A$ is totally bounded, then $A$ is relatively compact. If $A$ is compact then it is closed and totally bounded.
+\end{remark}
+\begin{remark}Here is Brezis remark in this respect:
+	\begin{enumerate}
+		\item If $X$ is a metric space, then $X$ is compact if and only if every sequence in $X$ admits a convergent subsequence.
+		\item There exist compact topological spaces $X$ and some sequences in $X$ without any convergent subsequence. En example is $B_{E^*}$, which is compact in the weak* topology; when $E=\ell^\infty$, it is easy to construct a sequence in $X$ without any convergent subsequence.
+		\item If $X$ is any topological space with the property that every sequence admits a convergent subsequence, $X$ need not be compact.	
+	\end{enumerate}
+\end{remark}
+\begin{prop}
+	If $X$ is a reflexive Banach space and $M\subseteq E$ is a closed linear subspace of $E$, then $M$ is reflexive.
+\end{prop}
+\begin{proof}
+	By Hahn-Banach, every functional on $M$ is the restriction of a funcional on $E$, so that the weak topology on $M$ and the subspace topology of the weak topology on $E$ coincide. By Kakutani's theorem it suffices to show the closed unit ball on $M$ is compact. However, $B_E$ is compact in the weak topology of $E$ and $M$ is closed, too, in the weak topology by \cref{thm:convex-sets-closed-weak-strong-topologies}.
+\end{proof}
+\begin{coro}
+	A Banach space $E$ is reflexive if and only if its dual space $E^*$ is reflexive.
+\end{coro}
+\begin{proof}\leavevmode
+	$(\implies)$. If, roughly speaking, $E^{**}=E$, then $E^{***}=E^*$. Indeed, for $\varphi\in E^{***}$, the map $x\mapsto\langle\varphi,Jx\angle$ is a continuous linear functional on $E$, where $J:E\to E^{**}$ is the canonical isomorphism.
+\end{proof}
 \iffalse
 \clearpage
 \section{Exercises}

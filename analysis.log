@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  26 DEC 2023 20:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  27 DEC 2023 10:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1378,7 +1378,7 @@ chcal/m/n/10 M\OT1/cmr/m/n/10 )$\OT1/ppl/m/n/10 ,
  []
 
 [7]
-<fig1.png, id=306, 1912.14375pt x 946.53625pt>
+<fig1.png, id=316, 1912.14375pt x 946.53625pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
 Package pdftex.def Info: fig1.png  used on input line 369.
@@ -1387,7 +1387,7 @@ LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
 (Font)              scaled to size 9.0pt on input line 370.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
 (Font)              scaled to size 6.0pt on input line 370.
-<fig2.png, id=307, 1912.14375pt x 946.53625pt>
+<fig2.png, id=317, 1912.14375pt x 946.53625pt>
 File: fig2.png Graphic file (type png)
 <use fig2.png>
 Package pdftex.def Info: fig2.png  used on input line 376.
@@ -1517,24 +1517,25 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1494.
 
-[40] [41] (./analysis.aux)
+[40]
 
-Package rerunfilecheck Warning: File `analysis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: Reference `thm:BAB' on page 1 undefined on input line 1498.
 
-Package rerunfilecheck Info: Checksums for `analysis.out':
-(rerunfilecheck)             Before: 12D48FC5C30E9725B2690D4A3B666393;6461
-(rerunfilecheck)             After:  EE121B7C517A722410E4D8E55C1EA4F6;6658.
+[41] [42] [43] (./analysis.aux)
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `analysis.out' has not changed.
+(rerunfilecheck)             Checksum: C9AC124B518B5E924531B4EF03FB5B32;6784.
 Package logreq Info: Writing requests to 'analysis.run.xml'.
 \openout1 = `analysis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38129 strings out of 476025
- 774448 string characters out of 5790018
+ 38169 strings out of 476025
+ 775123 string characters out of 5790018
  1871388 words of memory out of 5000000
- 57500 multiletter control sequences out of 15000+600000
+ 57512 multiletter control sequences out of 15000+600000
  535823 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,85p,1883b,1136s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1573,16 +1574,17 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2023/texmf-di
 st/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-
-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023
-/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2023/texmf-
-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023/texmf-dist/f
-onts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/ty
-pe1/urw/palatino/uplri8a.pfb>
-Output written on analysis.pdf (41 pages, 497274 bytes).
+dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/te
+xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/202
+3/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2023/te
+xmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023/texmf-di
+st/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist/font
+s/type1/urw/palatino/uplri8a.pfb>
+Output written on analysis.pdf (43 pages, 514889 bytes).
 PDF statistics:
- 1036 PDF objects out of 1200 (max. 8388607)
- 930 compressed objects within 10 object streams
- 479 named destinations out of 1000 (max. 500000)
- 287 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1094 PDF objects out of 1200 (max. 8388607)
+ 984 compressed objects within 10 object streams
+ 507 named destinations out of 1000 (max. 500000)
+ 303 words of extra memory for PDF output out of 10000 (max. 10000000)
 

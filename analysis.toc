@@ -32,3 +32,4 @@
 \contentsline {section}{\numberline {6}Weak topologies}{39}{section.6}%
 \contentsline {subsection}{\numberline {6.1}The weak topology $\sigma (E,E^*)$}{39}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}The weak* topology $\sigma (E^*,E)$}{41}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Reflexive spaces}{42}{section.7}%
