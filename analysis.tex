@@ -991,7 +991,7 @@ It is not obvious that there are any nonzero bounded linear functionals on an ar
 	p(x+y)\leq p(x)+p(y)\qquad\forall x,y\in X
 \end{equation}
 
-\begin{thm}[Helly-Hahn-Banach]\label{thm:helly-hahn-banach}
+\begin{thm}[Helly-Hahn-Banach]\label{thm:HB}
 	Let $E$ be a vector space over $\R$ and $p:E\to\R$ a sublinear functional. If $G\subseteq E$ is a linear subspace and $g:G\to\R$ is a linear functional such that
 	\[g(x)\leq p(x)\quad\forall x\in E,\]
 	then there exists a linear functional $f$ defined on all of $E$ that extends $g$, that is, $g(x)=f(x)\;\forall x\in G$ and such that
@@ -1001,7 +1001,7 @@ For a proof first recall that a partial order $P$ is \textbf{\textit{inductive}}
 \begin{lemma}[Zorn]
 	Every nonempty order set that is inductive has a maximal element.
 \end{lemma}
-\begin{proof} (Of \cref{thm:helly-hahn-banach})
+\begin{proof} (Of \cref{thm:HB})
 	Consider the set
 	\[P=\left\{h:D(h)\subseteq E\to\R:\substack{D(h)\text{ is a linear subspace of }E,\\
 	h\text{ is linear},G\subseteq D(h),\\
@@ -1352,6 +1352,181 @@ Here are two basic results due to Banach.
 \end{proof}
 
 \subsection{An introduction to Unbounded Linear Operators. Definition of the Adjoint}
+
+Let  $E$ and $F$ be two Banach spaces. An \textbf{\textit{unbounded linear operator}} from $E$ into $F$ is a linear map $A:D(A)\subset E\to F$ defined on a linear subspace $D(A)\subset E$ with values in $F$. The set $D(A)$ is called the \textbf{\textit{domain}} of $A$. We say that $A$ is \textbf{\textit{bounded}} or \textbf{\textit{continuous}} if $D(A)=E$ and if there is a constant $c\geq0$ such that
+\[\Vert Au\Vert\leq c\Vert u\Vert\quad\forall u\in E.\]
+The norm of a bounded operator is defined as
+\[\Vert A\Vert_{\mathcal{L}(E,F)}:=\sup_{u\neq0}\frac{\Vert Au\Vert}{\Vert u\Vert}.\]
+The \textbf{\textit{graph of $A$}} is the set
+\[G(A):=\{[u,Au]:u\in D(A)\}\subset E\times F\]
+$A$ is \textbf{\textit{closed}} if $G(A)$ is closed in $E\times F$. We denote by $R(A)$ the \textbf{\textit{range of $A$}} and by $N(A)$ the \textbf{\textit{kernel of $A$}}.
+\begin{remark}
+	In order to prove that an operator $A$ is closed, one proceeds in general as follows. Take a sequence $(u_n)$ in $D(A)$ such that $u_n\to u$ in $E$ and $Au_n\to f$ in $F$. Then just check that
+	\begin{enumerate}
+		\item $u\in D(A)$
+		\item $f=Au$
+	\end{enumerate}
+	which ammounts to taking a convergent sequence in the graph of $A$ and checking its limit is still in the graph. Notice it does not suffice to take only a sequence convergent to 0.
+\end{remark}
+\begin{remark}
+	If $A$ is closed, then $N(A)$ is closed but $R(A)$ need not be closed.
+\end{remark}
+Let $A:D(A)\subset E\to F$ be an unbounded linear operator that is \textbf{\textit{densely defined}}, that is, for which $D(A)$ is dense in $E$. To introduce an unbounded operator $A^*:D(A^*)\subset F^*\to E^*$ define its domain as
+\[D(A^*):=\{v\in F^*:\exists c\geq0\text{ such that }|\langle v,Av\rangle|\leq c\Vert u \Vert\;\forall u\in D(A)\},\]
+which is clearly a linear subspace of $F^*$. Just like the pullback a 1-form is defined by pushing forward a vector and then evaluating on the form, define for $v\in D(A^*)\subset F^*$,
+\[g(u)=\langle v,Au\rangle\quad\forall u\in D(A).\]
+Notice this ``pullback" of $v$ is defined only for vectors in $D(A)\subset E$, so that we must extend $g$ to a functional on all of $E$. By definition, $|g(u)|\leq c\Vert u\Vert\;\forall u\in D(A)$, so that we may apply Hahn-Banach (\cref{thm:HB}) to obtain a linear map $f:E\to\R$ that extends $g$ and $|f(u)|\leq c\Vert u\Vert\;\forall u\in E$. It follows that the extension is unique from the fact that $D(A)$ is dense in $E$ (and that $f$ is continuous).
+
+The unbounded linear operator $A^*:D(A^*)\subseteq F^*\to E^*$ is called the \textbf{\textit{adjoint}} of $A$. The fundamental relation between $A$ and $A^*$ is
+\[\langle v,Au\rangle_{F^*,F}=\langle A^*v,u\rangle_{E^*,E}\quad\forall u\in D(A),\;\forall v\in D(A^*).\]
+{\color{blue}Which reminds me of
+\[\omega (F_*v)=(F^*\omega)v.\]}
+\begin{remark}
+	Its not necessary to use Hahn-Banach to extend $g$.
+\end{remark}
+\begin{remark}
+	It may happen that $D(A^*)$ is not dense in $F^*$. This is a rather pathological situation. It is always true that if $A$ is closed then $D(A^*)$ is dense in $F^*$ for the weak* topology $\sigma(F^*,F)$. In particular, if $F$ is reflexive, then $D(A^*)$ is dense in $F^*$ for the usual norm topology.
+\end{remark}
+\begin{remark}
+	If $A$ is bounded, then $A^*$ is also bounded and $\Vert A^*\Vert_{\mathcal{L}(E^*,F^*)}=\Vert A\Vert_{\mathcal{L}(E,F)}$. {\color{orange} To see this,}.
+\end{remark}
+\begin{prop}
+	Let $A:D(A)\subset E\to F$ be a densely defined unbounded linear operator. Then $A^*$ is closed, that is, $G(A^*)$ is closed in $F^*\times E^*$.
+\end{prop}
+\begin{proof}
+	Suppose $v_n\in D(A^*)$ is such that $v_n\to v$ in $F^*$ and $A^*v_n\to f$ in $E^*$. We must show that $v\in D(A^*) $ and that $A^*v=f$. We know that
+	\[\langle v_n, Au\rangle=\langle A^*v_n,u\rangle\quad\forall u\in D(A).\]
+	At the limit we obtain
+	\[\langle v,Au\rangle =\langle f,u\rangle\quad\forall u\in D(A)\]
+	so that
+	\[\langle v,Au\rangle=\langle f,u\rangle\leq \Vert f\Vert \Vert u\Vert\quad\forall u\in D(A)\]
+	since $f\in E^*$, which means that $v\in D(A^*)$, and also that $A^*v=f$.
+\end{proof}
+
+The graphs of $A$ and $A^*$ are related by a ver simple orthogonality relation. Consider the isomorphism $I:F^*\times E^*\to E^*\times F^*$ defined by
+\[I([v,f])=[-f,v].\]
+Let $A:D(A)\subset E\to F$ be a densely defined unbounded linear operator. Then
+\[I[G(A^*)]=G(A)^\perp=\{[f,v]\in (E\times F)^*:\langle f,x\rangle=0\;\forall x\in G(A)\}.\]
+Indeed, let $[v,f]\in F^*\times E^*$, then
+\begin{align*}
+	[v,f]\in G(A^*)&\iff \langle f,u\rangle=\langle v,Au\rangle\quad\forall u\in D(A)\\
+	&\iff -\langle f,u\rangle+\langle v,Au\rangle=0\quad\forall u\in D(A)\\
+	&\iff [-f,u]\in F(A)^\perp
+\end{align*}
+\begin{coro}
+	{\color{orange} Orhogonality relations between range and null space of an operator and its adjoint.}
+\end{coro}
+
+\section{Weak topologies}
+\subsection{The weak topology $\sigma(E,E^*)$}
+Consider the situation of having a set $X$ and a collection $(Y_i)_{i\in I}$ of topological spaces along with a collection of maps $\varphi_i:X\to Y_i$ for $i\in I$. Then we embark in finding the topology $\mathcal{T}$ on $X$ with the fewest open sets that makes all the maps $(\varphi_i)_{i\in I}$ continous. A construction is given by considering finite intersections of sets of the form $\varphi_i^{-1}(\omega_i)$ for $\omega_i$ open in $Y_i$, and then arbitrary unions. Such is the \textbf{\textit{weakest topology associated to the collection $(\varphi_i)_{i\in I}$}}. Then we have
+\begin{prop}
+	Let $(x_n)$ be a sequence in $X$. Then $x_n\to x$ in $\mathcal{T}$ if and only if $\varphi_i(x_n)\to \varphi_i(x)$ for every $i\in I$.
+\end{prop}
+\begin{prop}\label{prop:universal-property-weak-topology}
+	Let $Z$ be a topological space and let $\psi$ be a map from $Z$ into $X$. Then $\psi$ is continuous if and only if $\varphi_i\circ\psi$ is continuous from $Z$ into $Y_i$ for every $i\in I$.
+\end{prop}
+Let $E$ be a Banach space. The \textbf{\textit{weak topology $\sigma (E,E^*)$}} is the weak topology associated to the linear functionals in $E^*$. Since every functional in $E^*$ is continuous (by definition of $E^*$), the weak topology is weaker than the usual (norm) topology.
+\begin{prop}
+	The weak topology $\sigma(E,E^*)$ is Housdorff.
+\end{prop}
+\begin{prop}
+	By Hahn-Banach second geometric form.
+\end{prop}
+\begin{prop}\label{prop:neighbourhoods-weak-topology}
+	Let $x_0\in E$. Given $\varepsilon>0$ and a \textbf{finite} set $\{f_1,f_2,\ldots,f_k\}\subset E^*$, consider
+	\[V=V(f_1,\ldots,f_k;\varepsilon)=\{x\in E:|\langle f_i,x-x_0\rangle|<\varepsilon\;\forall i=1,2,\ldots,k\}.\]
+	Then $V$ is a neighbourhood of $x_0$ for the topology $\sigma(E,E^*)$. Moreover, we obtain a \textbf{basis of neighbourhoods} of $x_0$ for $\sigma(E,E^*)$ by varying $\varepsilon,k$ and the $f_i$ in $E$.
+\end{prop}
+If a sequence $(x_n)$ in $E$ converges to $x$ in the weak topology we write $x_n\rightharpoonup x$.
+\begin{prop}
+	Let $(x_n)$ be a sequence in $E$. Then
+	\begin{enumerate}
+		\item $x_n\rightharpoonup x \iff \langle f,x_n\rangle\to\langle f,x\rangle\;\forall f\in E^*$.
+		\item If $x_n\to x$, then $x_n\rightharpoonup x$.
+		\item If $x_n\rightharpoonup x$, then $(\Vert x_n\Vert)$ is bounded and $\Vert x\Vert\leq \liminf\Vert x_n\Vert$.
+		\item If $x_n\rightharpoonup x$ and $f_n\to f$, then $\langle f_n,x_n\rangle\to\langle f,x\rangle$.
+	\end{enumerate}
+\end{prop}
+\begin{prop}
+	When $E$ is finite-dimensional, the weak topology and the usual topology are the same. In particular, a sequence converges weakly if and only if it converges strongly.
+\end{prop}
+\begin{example}
+	The unit sphere $S=\{x\in E:\Vert x\Vert=1\}$ with $E$ infinite-dimensional is never closed in the weak topology $\sigma (E,E^*)$. More precisely, its weak closure is
+	\[\overline{S}^{\sigma(E,E^*)}=B_E=\{x\in E:\Vert x\Vert\leq1\}.\]
+	The geometric interpretation of this construction is that when $E$ is infinite-dimensional, every neighbourhood of a point in the weak topology contains a line passing through the point; even a whole affin space passing through the point. The proof uses \cref{prop:neighbourhoods-weak-topology}.
+\end{example}
+\begin{example}
+	The unit ball $U=\{x\in E:\Vert x\Vert<1\}$ with $E$ infinite-dimensional is never open in the weak topology. If $U$ was weakly open, its complement $U^c$ would be weakly closed, so that $S=B_E\cap U^c$ would be weakly closed.
+\end{example}
+\begin{remark}
+	In infinite-dimensional spaces the weak topology is never metrizable. However, as we shall see, if $E^*$ is separable, one can define a norm on $E$ that induces \textit{on bounded sets of $E$} the weak topology.
+\end{remark}
+\begin{remark}
+	Usually, in infinite-dimensional spaces, there exist sequences that converge weakly and do not converge strongly. For example, if $E^*$ is separable or if $E$ is reflexive, one can construct a sequence $(x_n)$ in $E$ such thaat $\Vert x_n\Vert =1$ and $x_n\rightharpoonup0$. However, there are spaces such as $\ell^1$ with the unusual property that every weakly converent sequence is strongly convergent. Recall that two metrizable spaces with the same convergent sequences have identical topologies, but two topological spaces with the same convergent sequences need not have identical topologies.
+\end{remark}
+
+\begin{thm}
+	Let $C$ be a convex subset of $E$. Then $C$ is closed in the weak topology if and only it it is closed in the strong topology.
+\end{thm}
+\begin{proof}
+	Hahn-Banach.
+\end{proof}
+\begin{remark}
+	In the proof we see that every closed convex set $C$ coincides with the intersection of all the closed half-spaces containing $C$:
+\end{remark}
+\begin{coro}[Manzur]
+	Assume $(x_n)$ convergences weakly to $x$. Then there exists a sequence $(y_n)$ made up of convex combinations of the $x_n$ that converges strongly to $x$.
+\end{coro}
+\begin{coro}
+	Assume that $\varphi:E\to(-\infty,+\infty]$ is convex and l.s.c. in the strong topology. Then $\varphi$ is l.s.c. in the weak topology.
+\end{coro}
+\begin{thm}
+	Let $E$ and $F$ be two Banach spaces and let $T$ be a linear operator from $E$ into $F$. Assume that $T$ is continuous in the strong topologies. Then $T$ is continuous from $E$ weak into $F$ weak, and conversely.
+\end{thm}
+\begin{remark}
+	In fact, if a linear operator is continuous from $E$ strong into $F$ weak, the it is continuous from $E$ strong into $F$ strong. The following continuity properties are all the same: $S\to S$, $W\to W$, $S\to W$. On the other hand, very few linear operators are continuous $W\to S$.
+\end{remark}
+\begin{remark}
+	Nonlinear maps that are continuous from $E$ strong into $F$ strong are in general not continuous from $E$ weak into $F$ weak.
+\end{remark}
+
+\subsection{The weak* topology $\sigma(E^*,E)$}
+For every $x\in E$ consider the linear functional in $E^{**}$ defined by $f\mapsto\langle f,x\rangle$. The \textbf{\textit{weak* $\sigma(E^*,E)$}} is the weakest topology associated to the former collection of funcionals as $x$ runs through $E$. It is clear that $\sigma(E^*,E)$ is coarser than the usual weak topology of $E^*$, denoted by $\sigma(E^*,E^{**})$.
+
+\begin{remark}
+	The hysteria over weak topologies is explained by the fact that there are more compact sets in a weaker topology.
+\end{remark}
+
+\begin{prop}
+	The weak* topology is Housdorff.
+\end{prop}
+\begin{proof}
+	Hahn-Banach.
+\end{proof}
+\begin{prop}
+	Let $f_0\in E^*$. Given a \textbf{finite} set $\{x_1,x_2,\ldots,x_k\}$ in $E$ and $\varepsilon>0$, consider
+	\[V=V(x_1,\ldots,x_k;\varepsilon)=\{f\in E^*:|\langle f-f_0,x_i\rangle|<\varepsilon\;\forall i=1,\ldots,k\}.\]
+	Then $V$ is a neighbourhood of $f_0$ for the weak* topology. Moreover, we obtain a \textbf{basis of neighbourhoods} of $f_0$ for the weak* topology by varying $\varepsilon,k$ and the $x_i$ in $E$.
+\end{prop}
+If a sequence $(f_n)$ converges to $f$ in the weak* topology, we write $f_n\overset{*}{\rightharpoonup}f$.
+\begin{prop}
+	\begin{enumerate}
+		\item $f_n\overset{*}{\rightharpoonup}f \iff \langle f_n,x\rangle\to\langle f,x\rangle\;\forall x\in E$.
+		\item $f_n\to f\implies f_n\rightharpoonup f\implies f_n\overset{*}{\rightharpoonup}f$.
+		\item If $f_n\overset{*}{\rightharpoonup}f$, then $(\Vert f_n\Vert)$ is bounded and $\Vert f\Vert\leq\liminf\Vert f_n\Vert$.
+		\item $f_n\overset{*}{\rightharpoonup}f$ and $x_n\to x$, then $\langle f_n,x_n\rangle\to\langle f,x\rangle$.
+	\end{enumerate}
+\end{prop}
+\begin{remark}
+	In finite-dimensional spaces, the three topologies strong, weak and weak* coincide. Indeed, the canonical injection $J:E\to E^{**}$ is surjective.
+\end{remark}
+\begin{remark}	
+	If the canonical injection $J$ is not surjective, the weak* topology is strictly coarser than the topology $\sigma(E^*,E^{**})$. (This requires two propositions not listed.)
+\end{remark}
+\begin{thm}[Banach-Alaoglu-Bourbaki]
+	The closed unit ball $B_{E^*}=\{f\in E^*:\Vert f\Vert\leq1\}$ is compact in the weak* topology.
+\end{thm}
 
 \iffalse
 \clearpage
