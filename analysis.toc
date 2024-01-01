@@ -29,7 +29,9 @@
 \contentsline {subsection}{\numberline {5.2}The Uniform Boundedness Principle}{32}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}The Open Mapping Theorem and the Closed Graph Theorem}{35}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}An introduction to Unbounded Linear Operators. Definition of the Adjoint}{36}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Weak topologies}{39}{section.6}%
+\contentsline {section}{\numberline {6}Weak topologies. Reflexive Spaces. Separable Spaces. Uniformly Convex Spaces.}{39}{section.6}%
 \contentsline {subsection}{\numberline {6.1}The weak topology $\sigma (E,E^*)$}{39}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}The weak* topology $\sigma (E^*,E)$}{41}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Reflexive spaces}{42}{section.7}%
+\contentsline {subsection}{\numberline {6.3}Reflexive spaces}{42}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Separable spaces}{45}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Uniformly Convex Spaces}{46}{subsection.6.5}%

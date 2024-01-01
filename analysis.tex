@@ -122,7 +122,7 @@
 	These are preparation notes for a course on Functional Analysis at IMPA, summer 2024. They are based on \cite{folland,narici,brezis}.
 	\tableofcontents
 	\clearpage
-	\section{Measure theory}
+\section{Measure theory}
 	{\small \color{blue}A measure should surely satisfy:
 	\begin{enumerate}
 		\item If $E_1,E_2,\ldots$ is a finite or infinite sequence of disjoint sets,
@@ -287,8 +287,7 @@ Let $X$ be a nonempty set.
 		\end{prop}
 		\end{itemize}
 
-		\subsection{Measurable functions}
-		%\item \textbf{(Integration.)} 
+	\subsection{Measurable functions}
 		Now we construct integrals from simple funtions.
 		
 		\begin{itemize}
@@ -512,12 +511,12 @@ Let $X$ be a nonempty set.
 		\end{thm}
 
 		\end{itemize}
-%		\end{itemize}
 
 \clearpage
 
 \section{Point set topology}
-	 \subsection{Metric spaces} A \textbf{\textit{metric}} on a set $X$ is a function $\rho:X\times X\to [0,\infty)$ such that
+	\subsection{Metric spaces}
+	 A \textbf{\textit{metric}} on a set $X$ is a function $\rho:X\times X\to [0,\infty)$ such that
 	\begin{enumerate}
 		\item $\rho(x,x)=0$ if and only if $x=0$.
 		\item $\rho(x,y)=\rho(y,x)$ for all $x,y\in X$.
@@ -591,7 +590,7 @@ Let $X$ be a nonempty set.
 		\end{enumerate}
 	\end{thm}
 	
-	\subsection{Topological spaces}
+	\subsection{Topological spacesd}
 	Let $X$ be a nonempty set. A \textbf{\textit{topology}} on $X$ is a family $\mathcal{T}$ of subsets of $X$ that contains $\varnothing$ and $X$ and is closed under arbitrary unions and finite intersections. (That is, if $\{U_\alpha\}_{\alpha\in X}\subset\mathcal{T}$ then $\bigcup_{\alpha\in A}U_\alpha\in\mathcal{T}$ and if $U_1,\ldots, U_n\in\mathcal{T}$ then $\bigcap_{j=1}^nU_j\in\mathcal{T}$.) The pair $(X,\mathcal{T})$ is called a \textbf{\textit{topological space}}.
 	
 	The memebers of $\mathcal{T}$ are called \textbf{\textit{open sets}} and their complements are called \textbf{\textit{closed sets}}. If $A\subseteq X$, the union of all open sets contained in $A$ is called the \textbf{\textit{interior}} of $A$, denoted by $A^o$; so that a point $x\in A^o$ when there is an open set $O$ contained in $A$ such that $x\in O$. The intersection of all closed sets containing $A$ is called the \textbf{\textit{closure}} of $A$. The difference $\bar{A}\backslash A^o=\bar{A}\cap\overline{A^c}$ is called the \textbf{\textit{boundary}} of $A$ and is denoted by $\partial A$.
@@ -670,7 +669,7 @@ Let $X$ be a nonempty set.
 		Además $\img F\subset\operatorname{conv}\img F$.
 	\end{thm}
 	
-		\subsection{Compact spaces}
+	\subsection{Compact spaces}
 	
 		A topological space $X$ is called \textbf{\textit{compact}} if whenever $\{U_\alpha\}_{\alpha\in A}$ is an open cover of $X$ there is a finite subset $B$ of $A$ such that $X=\bigcup_{\alpha\in B}U_\alpha$. A subset $Y\subseteq X$ is called \textbf{\textit{compact}} if it is compact in the relative topology and \textbf{\textit{precompact}} if its closure is compact.
 		
@@ -690,7 +689,7 @@ Let $X$ be a nonempty set.
 		\end{prop}
 		A topological space $X$ is \textbf{\textit{countably compact}} if every countable open cover of $X$ has a finite subcover, and \textbf{\textit{sequentially compact}} if every sequence in $X$ has a convergent subsequence. For metric spaces compactness and sequential compactness are the equivalent. There exists no general relation between compactness and sequential compactness.
 		
-		\subsection{Locally Compact Hausdorff spaces}
+	\subsection{Locally Compact Hausdorff spaces}
 		
 		A topological space is called \textbf{\textit{locally compact}} if every point has a compact neighbourhood (a set $A\subset X$ such that $x\in A^o$). We call locally compact Hausdorff spaces \textbf{\textit{LCH}} for short.
 		\begin{prop}Let $X$ be a LCH space.
@@ -722,8 +721,7 @@ Let $X$ be a nonempty set.
 			Every second countable normal space is metrizable.
 		\end{thm}
 		
-		\subsection{Three compactness theorems}
-		
+	\subsection{Three compactness theorems}
 		Recall that if $X=\prod_{\alpha\in A}X_\alpha$, an element $x\in X$ is just a mapping from $A$ to $\bigcup_{\alpha\in A}X_\alpha$, with $x(\alpha)$ the $\alpha$th coordinate of $x$.
 		
 		\begin{thm}
@@ -737,8 +735,7 @@ Let $X$ be a nonempty set.
 		\begin{thm}[Arzelá-Ascoli II]
 			Let $X$ be a locally compact Housdorff space. If $\{f_n\}$ is an equicontinuous, pointwise bounded sequence in $C(X)$, then there exists $f\in C(X)$ and a subsequence of $\{f_n\}$ that converges to $f$ uniformly on compact sets.
 		\end{thm}
-
-		\subsection{The Stone-Weierstrass Theorem}
+	\subsection{The Stone-Weierstrass Theorem}
 		Recall that the Weierstrass theorem states that any continuous function on a compact interval $[a,b]$ is the uniform limit of polynomials on $[a,b]$. Throughout this subsection, $X$ will denote a compact Hausdorff space, and $C(X)$ is equipped with the uniform metric.
 		
 		A subset $\mathcal{A}$ of $C(X,\R)$ of $C(X)$ is said to \textbf{\textit{separate points}} if for every $x,y\in X$ with $x\neq y$ there exists $f\in \mathcal{A}$ such that $f(x)\neq f(y)$. $\mathcal{A}$ is called an \textbf{\textit{algebra}} if it is a real (resp. complex) vector subspace of $C(X,\R)$ (resp. $C(X)$) such that $fg\in \mathcal{A}$ whenever $f,g\in\mathcal{A}$. $\mathcal{A}$ is called a \textbf{\textit{lattice}} if $\max (f,g)$ and $\min (f,g)$ are in $\mathcal{A}$ whenever $f,g\in \mathcal{A}$. If $\mathcal{A}$ is an algebra or a lattice, so is its closure in the uniform metric.
@@ -763,8 +760,9 @@ Let $X$ be a nonempty set.
 
 \clearpage
 \section{Inner product spaces}
-Let $X$ be a real or complex vector space.
-	\subsection{Inner products} An \textbf{\textit{inner product}} on $X$ is a mapping
+	Let $X$ be a real or complex vector space.
+	\subsection{Inner products}
+	An \textbf{\textit{inner product}} on $X$ is a mapping
 	\begin{align*}
 		\langle-,-\rangle:X\times X\to F
 	\end{align*}
@@ -792,7 +790,8 @@ Let $X$ be a real or complex vector space.
 			\[|\langle x,y\rangle\leq\Vert x\Vert\Vert y\Vert\]
 			with equality holding if and only if $x$ and $y$ are linearly independent.
 		\end{thm}
-		\subsection{Orthogonal projections} Two vectors $x,y\in X$ are \textbf{\textit{orthogonal}} if $\langle x,y\rangle=0$.
+	\subsection{Orthogonal projections}
+	Two vectors $x,y\in X$ are \textbf{\textit{orthogonal}} if $\langle x,y\rangle=0$.
 		\begin{examples}\leavevmode
 	\begin{enumerate}
 		\item In $L_2(–\pi,\pi)$, the collection (or any subset thereof)
@@ -824,7 +823,7 @@ Let $X$ be a real or complex vector space.
 		\begin{thm}
 			If $M$ is a finite-dimensional subspace of $X$, then $X=M\oplus M^\perp$.
 		\end{thm}
-		\subsection{Riesz representation theorem}
+	\subsection{Riesz representation theorem}
 	 \begin{thm}[Riesz]
 		If $X$ is a finite-dimensional inner product space and $f$ is a linear functional on $X$, then there exists a unique vector $y\in X$ such that $f(x)=\langle x,y\rangle for all x\in X$.
 	\end{thm}
@@ -980,8 +979,7 @@ If $X$ is a vector space over $K=\R,\C$, a \textbf{\textit{linear functional}}. 
 \end{prop}
 
 \section{Hahn-Banach theorems}
-
-\subsection{Analytic form of the Hahn-Banach theorem}
+	\subsection{Analytic form of the Hahn-Banach theorem}
 It is not obvious that there are any nonzero bounded linear functionals on an arbitrary normed vector space. If $E$ is a real vector space, \textbf{\textit{sublinear}} or \textbf{\textit{Minkoswky functional}} on $E$ is a map $p:E\to\R$ such that
 
 \begin{equation}\label{eq:sublinear1}
@@ -1082,7 +1080,7 @@ The (multivalued) \textbf{\textit{duality map}} for $x_0\in E$ is
 	On the other hand, by \cref{coro:HB2} there is some $f_0\in E^*$ such that $\Vert f_0\Vert=\Vert x\Vert$ and $\langle f_0,x\rangle=\Vert x\Vert^2$. Set $f_1=f_0/\Vert x\Vert$ so that $\Vert f_1\Vert=1$ and $\langle f_1,x\rangle=\Vert x\Vert$.
 \end{proof}
 
-\subsection{Geometric forms of the Hahn-Banach theorem}
+	\subsection{Geometric forms of the Hahn-Banach theorem}
 An \textbf{\textit{affine hyperplane}} is a subset $H$ of $E$ of the form
 \[H=\{x\in E:f(x)=\alpha\}\]
 where if $f$ is a nonzero linear functional not necesarily continuous and $\alpha$ a is a real constant. We also write $H=[f=\alpha]$.
@@ -1135,7 +1133,7 @@ A subset $A\subseteq E$ is \textbf{\textit{convex}} if
 \end{proof}
 In infinite-dimensional vector spaces it is in general impossible to separate any two nonempty disjoint convex sets. In finite-dimensional vector spaces, however, it is always possible.
 
-\begin{coro}
+\begin{coro}\label{coro:dense-linear-subspace}
 	Let $F\subset E$ be a linear subspace such that $\overline{F}\neq E$. Then there exists some $f\in E^*$, $f\not\equiv0$ such that
 	\[\langle f,x\rangle=0\quad\forall x\in F\]
 \end{coro}
@@ -1146,7 +1144,7 @@ In infinite-dimensional vector spaces it is in general impossible to separate an
 \end{proof}
 By this corollary, we may prove that a linear subspace $F\subset E$ is dense by showing that every continuous linear functional that vanishes on $F$ must vanish in all of $E$.
 
-\subsection{The bidual $E^{**}$. Orthogonality relations.}
+	\subsection{The bidual $E^{**}$. Orthogonality relations.}
 Let $E$ be a normed vector space. Recall the norm on its dual space $E^*$ is
 \[\Vert f\Vert_{E^*}=\sup_{\substack{x\in E\\\Vert f\Vert\leq1}}|\langle f,x\rangle|.\]
 The \textbf{\textit{bidual}} space of $E$ is the dual of $E^*$ with norm
@@ -1169,7 +1167,7 @@ Notice that $N^\perp$ is a subset of $E$ rather than of $E^{**}$. Both $M^\perp$
 \end{prop}
 
 \section{The Uniform Boundedness Principle and the Closed Graph Theorem}
-\subsection{The Baire Category Theorem}
+	\subsection{The Baire Category Theorem}
 This theorem states that, in a complete metric space, a countable union of closed sets with empty interior has empty interior:
 \begin{thm}[Baire]
 	Let $X$ be a complete metric space and let $(X_n)_{n\geq1}$ be a sequence of closed subsets in $X$. Assume that
@@ -1189,7 +1187,7 @@ And there's also this other form of the same theorem:
 \begin{proof}
 	(Of the first form.) Set $O_n=X^c_n$ so that $O_n$ is open and dense in $X$ for every $n\geq1$. To show $\bigcup_{n=1}^\infty X_n$ has empty interior, it suffices to show that its complement $G=\bigcap_{n=1}^\infty O_n$ is dense in $X$. Succintly, the procedure is to construct a sequence of a sequence of closed balls inside any given open set $\omega$ of $X$; one ball for every $O_n$. This produces a Cauchy sequence, whose limit is a point in $\omega\cap G$.
 \end{proof}
-\subsection{The Uniform Boundedness Principle}
+	\subsection{The Uniform Boundedness Principle}
 Let $E$ and $F$ be two normed vector spaces. Recall that the space of continuous (=linear) operators from $E$ into $F$ is denoted by $\mathcal{L}(E,F)$ and is equipped with the norm
 \[\Vert T\Vert_{\mathcal{L}(E,F)}=\sup_{\substack{x\in E\\\Vert x\Vert\leq1}}\Vert Tx\Vert=\inf_{\substack{x\in E\\\Vert Tx\Vert\leq c\Vert x\Vert}}c.\]
 \begin{thm}[Banach-Steinhaus, uniform boundedness principle]
@@ -1270,7 +1268,7 @@ Let $E$ and $F$ be two normed vector spaces. Recall that the space of continuous
 	In these last two proofs it has become obvious how the norm of a vector can be described in terms of operators, and, dually, the norm of an operator can be described in terms of points. Recall \cref{coro:HB3} is a consequence of the Hahn-Banach theorem.
 \end{remark}
 
-\subsection{The Open Mapping Theorem and the Closed Graph Theorem}
+	\subsection{The Open Mapping Theorem and the Closed Graph Theorem}
 Here are two basic results due to Banach.
 \begin{thm}[Open mapping theorem]\label{thm:OMT}
 	\textit{A surjective continuous linear operator between two Banach spaces is an open map.}
@@ -1351,7 +1349,7 @@ Here are two basic results due to Banach.
 	It is easy to check that $E$ is a Banach space with $\Vert\;\Vert_1$. Since it is also a Banach space with $\Vert\;\Vert_2$, it follows from \cref{coro:OMT2} that the two norms are equivalent and thus there exists a constant $c>0$ such that $\Vert x\Vert_1\leq c\Vert x\Vert_2$. We conclude that $\Vert Tx\Vert_F\leq c\Vert x\Vert_E$. 
 \end{proof}
 
-\subsection{An introduction to Unbounded Linear Operators. Definition of the Adjoint}
+	\subsection{An introduction to Unbounded Linear Operators. Definition of the Adjoint}
 
 Let  $E$ and $F$ be two Banach spaces. An \textbf{\textit{unbounded linear operator}} from $E$ into $F$ is a linear map $A:D(A)\subset E\to F$ defined on a linear subspace $D(A)\subset E$ with values in $F$. The set $D(A)$ is called the \textbf{\textit{domain}} of $A$. We say that $A$ is \textbf{\textit{bounded}} or \textbf{\textit{continuous}} if $D(A)=E$ and if there is a constant $c\geq0$ such that
 \[\Vert Au\Vert\leq c\Vert u\Vert\quad\forall u\in E.\]
@@ -1417,8 +1415,8 @@ Indeed, let $[v,f]\in F^*\times E^*$, then
 	{\color{orange} Orhogonality relations between range and null space of an operator and its adjoint.}
 \end{coro}
 
-\section{Weak topologies}
-\subsection{The weak topology $\sigma(E,E^*)$}
+\section{Weak topologies. Reflexive Spaces. Separable Spaces. Uniformly Convex Spaces.}
+	\subsection{The weak topology $\sigma(E,E^*)$}
 Consider the situation of having a set $X$ and a collection $(Y_i)_{i\in I}$ of topological spaces along with a collection of maps $\varphi_i:X\to Y_i$ for $i\in I$. Then we embark in finding the topology $\mathcal{T}$ on $X$ with the fewest open sets that makes all the maps $(\varphi_i)_{i\in I}$ continous. A construction is given by considering finite intersections of sets of the form $\varphi_i^{-1}(\omega_i)$ for $\omega_i$ open in $Y_i$, and then arbitrary unions. Such is the \textbf{\textit{weakest topology associated to the collection $(\varphi_i)_{i\in I}$}}. Then we have
 \begin{prop}
 	Let $(x_n)$ be a sequence in $X$. Then $x_n\to x$ in $\mathcal{T}$ if and only if $\varphi_i(x_n)\to \varphi_i(x)$ for every $i\in I$.
@@ -1491,7 +1489,7 @@ If a sequence $(x_n)$ in $E$ converges to $x$ in the weak topology we write $x_n
 	Nonlinear maps that are continuous from $E$ strong into $F$ strong are in general not continuous from $E$ weak into $F$ weak.
 \end{remark}
 
-\subsection{The weak* topology $\sigma(E^*,E)$}
+	\subsection{The weak* topology $\sigma(E^*,E)$}
 For every $x\in E$ consider the linear functional in $E^{**}$ defined by $f\mapsto\langle f,x\rangle$. The \textbf{\textit{weak* $\sigma(E^*,E)$}} is the weakest topology associated to the former collection of funcionals as $x$ runs through $E$. It is clear that $\sigma(E^*,E)$ is coarser than the usual weak topology of $E^*$, denoted by $\sigma(E^*,E^{**})$.
 
 \begin{remark}
@@ -1531,9 +1529,9 @@ If a sequence $(f_n)$ converges to $f$ in the weak* topology, we write $f_n\over
 	Considering the space of all functions from $E$ into $\R$ and equipping it with the product (=Tychonoff, pointwise convergence) topology, in which we may embed $E^*$ homeomorphically (using the weak* topology). Compacteness is then checked with the product topology in the space of all functions.
 \end{proof}
 
-\section{Reflexive spaces}
-Recall that the \textbf{\textit{canonical injection}} $J:E\to E^{**}$ is defined as follows: given $x\in E$, the map $f\mapsto\langle f,x\rangle$ is a continuous linear functional on $E^*$; thus it is an element of $E^{**}$ which we denote by $Jx$. We have
-\[\langle Jx,f\rangle_{E^{**},E^*}=\langle f,x\rangle_{E^*,E}\quad\forall x\in x,\;\forall f\in E^{**}.\]
+	\subsection{Reflexive spaces}
+Recall that the \textbf{\textit{canonical injection}} $J:E\to E^{**}$ is defined as follows: given $x\in E$, the map $f\mapsto\langle f,x\rangle$ is a continuous linear functional on $E^*$, and thus an element of $E^{**}$ which we denote by $Jx$. We have
+\[\langle Jx,f\rangle_{E^{**},E^*}=\langle f,x\rangle_{E^*,E}\quad\forall x\in E,\;\forall f\in E^{**}.\]
 It is clear that $J$ is linear and that $J$ is an isometry, that is, $\Vert Jx\Vert_{E^{**}}=\Vert x\Vert_E$. Since it may happen that $J$ is not surjective, we say $E$ is \textbf{\textit{reflexive}} when $J$ is surjective, in which case we usually identify $E$ with $E^{**}$.
 
 \begin{remark}
@@ -1548,9 +1546,9 @@ It is clear that $J$ is linear and that $J$ is an isometry, that is, $\Vert Jx\V
 \end{thm}
 \begin{proof}\leavevmode
 	
-	$(\implies)$. Using Banach-Algaolu.
+	$(\implies)$ Using Banach-Alaoglu.
 	
-	$(\impliedby)$. Using the following two lemmas.
+	$(\impliedby)$ Using the following two lemmas.
 \begin{lemma}[Helly]
 	(An equivalence between two conditions that is later used in the context of \cref{prop:neighbourhoods-weak-topology}.)
 \end{lemma}
@@ -1567,14 +1565,28 @@ It is clear that $J$ is linear and that $J$ is an isometry, that is, $\Vert Jx\V
 To conclude notice that since $J$ is always continuous (check!), if $B_E$ is compact in the weak topology, then $J(B_E)$ as well with $\sigma(E^{**},E^*)$, and in particular it is closed. By Goldstine's lemma, $J(B_E)$ is dense in $B_{E^{**}}$, so that $J(B_E)=B_{E^{**}}$, which in turn implies that $J(E)=E^{**}$, that is, $E$ is reflexive.
 \end{proof}
 
-\begin{thm}
+Next we state some properties related to compactness.
+
+\begin{thm}\label{thm:reflexive-space-implies-bounded-sequences-have-convergent-subsequences}
 	Assume that $E$ is a reflexive Banach space and let $(x_n)$ be a bounded sequence in $E$. Then there exists a subsequence $(x_{n_k})$ that converges in the weak topology.
 \end{thm}
-\begin{thm}
+\begin{proof}
+	Is given in \cref{proof:eflexive-space-implies-bounded-sequences-have-convergent-subsequences}.
+\end{proof}
+\begin{thm}[Eberlein-\v Smulian]
 	Assume that $E$ is a Banach space such that every bounded sequence in $E$ admits a weakly convergent subsequence. Then $E$ is reflexive.
 \end{thm}
 \begin{remark}
-	We recall \cref{thm:compactness-properties}. Let $(X,\rho)$ be a metric space and $A\subseteq X$. A convergent subsequence can be selected out of any sequence of points in $A$ if and only if $A$ is relatively compact, that is, its closure $\overline{A}$ is compact. Further, if $A$ is relatively compact, it is totally bounded (in the sense that there exists a finite $\varepsilon$-net with respect to $A$ for every $\varepsilon>0$). If $(X,\rho)$ is complete and $A$ is totally bounded, then $A$ is relatively compact. If $A$ is compact then it is closed and totally bounded.
+	From Wikipedia: Bolzano-Weirstrass theorem says that every infinite bounded sequence in $\R^n$ has a convergent subsequence. Equivalently, a subset of $\R^n$ is sequentially compact if and only if it is closed and bounded.
+\end{remark}
+\begin{remark}
+	We recall \cref{thm:compactness-properties}. Let $(X,\rho)$ be a metric space and $A\subseteq X$.
+	\begin{enumerate}
+		\item A convergent subsequence can be selected out of any sequence of points in $A$ if and only if $A$ is relatively compact, that is, its closure $\overline{A}$ is compact. (We do not claim that the limit point is in $A$.)
+		\item If $A$ is relatively compact, it is totally bounded (in the sense that there exists a finite $\varepsilon$-net with respect to $A$ for every $\varepsilon>0$).
+		\item If $(X,\rho)$ is complete and $A$ is totally bounded, then $A$ is relatively compact. 
+		\item If $A$ is compact then it is closed and totally bounded.
+	\end{enumerate}
 \end{remark}
 \begin{remark}Here is Brezis remark in this respect:
 	\begin{enumerate}
@@ -1583,18 +1595,154 @@ To conclude notice that since $J$ is always continuous (check!), if $B_E$ is com
 		\item If $X$ is any topological space with the property that every sequence admits a convergent subsequence, $X$ need not be compact.	
 	\end{enumerate}
 \end{remark}
-\begin{prop}
+\begin{prop}\label{prop:closed-linear-subspace-of-reflexive-space-is-reflexive}
 	If $X$ is a reflexive Banach space and $M\subseteq E$ is a closed linear subspace of $E$, then $M$ is reflexive.
 \end{prop}
 \begin{proof}
 	By Hahn-Banach, every functional on $M$ is the restriction of a funcional on $E$, so that the weak topology on $M$ and the subspace topology of the weak topology on $E$ coincide. By Kakutani's theorem it suffices to show the closed unit ball on $M$ is compact. However, $B_E$ is compact in the weak topology of $E$ and $M$ is closed, too, in the weak topology by \cref{thm:convex-sets-closed-weak-strong-topologies}.
 \end{proof}
-\begin{coro}
+\begin{coro}\label{coro:space-reflexive-iff-dual-reflexive}
 	A Banach space $E$ is reflexive if and only if its dual space $E^*$ is reflexive.
 \end{coro}
 \begin{proof}\leavevmode
-	$(\implies)$. If, roughly speaking, $E^{**}=E$, then $E^{***}=E^*$. Indeed, for $\varphi\in E^{***}$, the map $x\mapsto\langle\varphi,Jx\angle$ is a continuous linear functional on $E$, where $J:E\to E^{**}$ is the canonical isomorphism.
+	$(\implies)$ Roughly speaking, $E^{**}=E$ implies $E^{***}=E^*$. Indeed, for $\varphi\in E^{***}$, the map $x\mapsto\langle\varphi,Jx\rangle$ is a continuous linear functional on $E$, where $J:E\to E^{**}$ is the canonical isomorphism. Call such a functional $f$, so that
+	\[\langle \varphi,Jx\rangle:=\langle f,x\rangle\quad\forall x\in E.\]
+	Now by definition of $J$, $\langle Jx,f\rangle=\langle f,x\rangle\;\forall x\in E$, so that
+	\[\langle\varphi , Jx\rangle=\langle Jx,f\rangle.\]
+	Since $J$ is surjective, we have
+	\[\langle \varphi,\xi\rangle=\langle \xi,f\rangle\quad\forall \xi\in E^{**}.\]
+	If the canonical injection from $E^{*}$ into $E^{***}$ is the map $f\mapsto\varphi$, {\color{orange} we have seen exactly that it is surjective}.
+	
+	$(\impliedby)$ Applying the previous step to the space $E^*$, we have that $E^{**}$ is reflexive. Since $J(E)$ is a closed subspace of $E^{**}$ in the strong topology (why?), we conclude by \cref{prop:closed-linear-subspace-of-reflexive-space-is-reflexive} that $J(E)$ is reflexive. This implies that $E$ is reflexive (in general, if $E$ and $F$ are two Banach spaces and $T$ is a linear surjective isometry from $E$ onto $F$, then $E$ is reflexive iff $F$ is reflexive).	
 \end{proof}
+\begin{coro}
+	Let $E$ be a reflexive Banach space. Let $K\subset E$ be a bounded closed and convex subset of $E$. Then $K$ is compact in the weak topology.
+\end{coro}
+\begin{proof}
+	Notice $K$ is a weakly closed subset of a weakly compact set: it is weakly closed by being strongly closed and convex, and it is a subset of $\lambda B_E$.
+\end{proof}
+\begin{coro}
+	(l.s.c.)
+\end{coro}
+\begin{thm}
+	Let $E$ and $F$ be two reflexive Banach spaces. Let $A:D(A)\subset E\to F$ be an unbounded linear operator that is densely defined and closed. Then $D(A^*)$ is dense in $F^*$. Thus $A^{**}$ is well defined and
+	\[A^{**}=A.\]
+\end{thm}
+\begin{proof}
+	$(D(A^*)\text{ is dense in }F^*)$ By \cref{coro:dense-linear-subspace} it suffices to show that every linear functional that vanishes on $D(A^*)$ is identically zero. Let $\varphi\in F^{**}$ vanish on $D(A^*)$. Sice $F$ is reflexive, we may identify $\varphi$ with an element in $F$ that we denote with the same symbol. Then we have:
+	\[0=\langle \varphi,w\rangle=\langle J\varphi,w\rangle=\langle w,\varphi\rangle\quad\forall w\in D(A^*).\]
+	If $\varphi\neq0$, then $[0,\varphi]\neq G(A)$ since $A$ is linear and the image of zero must be zero. {\color{orange} Since $G(A)$ is closed}, we may strictly separate $G(A)$ and $[0,\varphi]$ with a closed hyperplane. That is, there is a functional $[f,v]\in E^*\times F^*$ and a number $\alpha\in \R$ such that
+	\[\langle f,u\rangle+\langle v,Au\rangle<\alpha<\langle v,\varphi\rangle\quad\forall u\in D(A).\]
+	{\color{orange} I understand this argument shows that the pullback of $v$ is a continuous linear functional on $E$, that is, it is in the domain of the adjoint. Also it shows that $\langle v,\varphi\neq0$, a contradiction when choosing $w=v$ as above.}
+	
+	$(A^{**}=A)$ {\color{orange} Orthogonality relations.}
+\end{proof}
+\begin{remark}
+	Linear operators of reflexive Banach spaces are self-adjoint.
+\end{remark}
+
+	\subsection{Separable spaces}
+A metric space $E$ is \textbf{\textit{separable}} if there exsits a subset $D\subset E$ that is countable and dense.
+
+Finite-dimensional spaces are separable. $L^p$ and $\ell^p$ are separable for $1\leq p<\infty$. The space of continuous functions on a compact metric space $C(K)$ is also separable. $L^\infty$ and $\ell^\infty$ are not separable.
+
+\begin{prop}
+	Any subset of a separable space is separable.
+\end{prop}
+\begin{prop}\label{prop:dual-separable-implies-space-separable}
+	Let $E$ be a Banach space. If $E^*$ is separable then $E$ is separable.
+\end{prop}
+\begin{remark}
+	The converse is not true by the case of $L^1$ and $L^\infty$.
+\end{remark}
+\begin{coro}
+	Let $E$ be a Banach space. Then
+	\[E \text{ is reflexive and separable }\iff E^*\text{ is reflexive and separable}.\]
+\end{coro}
+\begin{proof}
+	Using \cref{prop:dual-separable-implies-space-separable,coro:space-reflexive-iff-dual-reflexive}.
+\end{proof}
+Recall that a topological space is said to be \textbf{\textit{metrizable}} if there exists a metric on $X$ that induces the topology of $X$.
+
+\begin{thm}\label{thm:separable-implies-unit-dual-ball-weakly*-metrizable}
+	Let $E$ be a separable Banach space. Then $B_{E^*}$ is metrizable in the weak* topology. Conversely, if $B_{E^*}$ is metrizable in the weak* topology, then $E$ is separable.
+\end{thm}
+There is a ``dual" statement:
+\begin{thm}
+	Let $E$ be a Banach space such that $E^*$ is separable. Then $B_E$ is metrizable in the weak topology. Conversely, if $B_E$ is metrizable in the weak topology,  then $E^*$ is separable.
+\end{thm}
+\begin{proof}
+	The metric is induced by the following norm on $E^*$:
+	\[[f]=\sum_{n=1}^\infty\frac{1}{2^n}|\langle f,x_n\rangle|\]
+	for $f\in E^*$.
+\end{proof}
+\begin{remark}
+	We emphasize again that in infinite-dimensional spaces the weak topology and weak* is \textit{not} metrizable. In particular, the topology induced by the norm $[ ]$ is not the weak* topology.
+\end{remark}
+\begin{coro}
+	Let $E$ be a separable Banach space and let $(f_n)$ be a bounded sequence in $E^*$. Then there exists a subsequence $(f_{n_k})$ that converges in the weak* topology.
+\end{coro}
+\begin{proof}
+	Follows from Banach-Alaoglu and \cref{thm:separable-implies-unit-dual-ball-weakly*-metrizable} since it suffices to check the property in the closed unit ball.
+\end{proof}
+\begin{proof}[Proof of \cref{thm:reflexive-space-implies-bounded-sequences-have-convergent-subsequences}] {\color{orange} Uses the last theorem and other results developed so far.}
+\end{proof}
+	\subsection{Uniformly Convex Spaces}
+A Banach space $E$ is said to be \textbf{\textit{uniformly convex}} if 
+\begin{gather*}
+	\forall\varepsilon>0\quad\exists\delta>0\text{ such that}\\
+	[x,y\in E,\;\Vert x\Vert\leq1,\Vert y\Vert\leq1\text{ and }\Vert x-y\Vert>\varepsilon]\implies\left[\left\Vert\frac{x+y}{2}\right\Vert<1-\delta\right]
+\end{gather*}
+That is, if we slide a rule of length $\varepsilon>0$ in the unit ball, then its midpoint must stay within a ball of radius $(1-\delta)$ for some $\delta>0$. This implies, in particular, that sphere must be ``round", and cannot include any line segment.
+
+\begin{example}
+	In $\R^2$, the norm $\Vert x\Vert_2=[|x_1|^2+|x_2|^2]^{1/2}$ is uniformly convex, while the norms $\Vert x \Vert_1=|x_1|+|x_2|$ and $\Vert x\Vert_\infty=\max\{|x_1|,|x_2|\}$ are not.
+	\[\hspace{-1.2cm}\begin{tikzpicture}[>=Stealth]
+		\foreach \i in {0,...,3}{
+			\begin{scope}[xshift=\i*4.5cm]
+				\draw [-] (-1.2,0)--(1.2,0);
+				\draw [-] (0,-1.2)--(0,1.2);
+				%\draw[shorten <=-1cm, shorten >=-3mm] (0,1)--(2,0) node [midway, above] {$A$};
+			\end{scope}
+		}
+		\begin{scope}[draw=blue, densely dashed]
+			\draw [] (-1,0)--(0,1)--(1,0)--(0,-1)--cycle;
+			\draw [](4.5,0) circle (0.88cm);
+			\draw [xshift=9cm] (-.66,-.66) rectangle (.66,.66);
+			\begin{scope}[xshift=13.5cm]
+				\draw [domain=0:90,samples=100,smooth,variable=\t] plot({-1*cos(\t)^(3)},{1*sin(\t)^(3)});
+				\draw [domain=0:90,samples=100,smooth,variable=\t] plot({-1*cos(\t)^(3)},{-1*sin(\t)^(3)});
+				\draw [domain=0:90,samples=100,smooth,variable=\t] plot({1*cos(\t)^(3)},{-1*sin(\t)^(3)});
+				\draw [domain=0:90,samples=100,smooth,variable=\t] plot({1*cos(\t)^(3)},{1*sin(\t)^(3)});
+			\end{scope}
+			%\foreach \i [count=\j from 0] in {(0,1),(.39,.79),(.66,.66),(0,1)} \scoped [xshift=\j*4.5cm] { \draw [{Circle[width=3pt, length=3pt, fill=black, black]}-{Circle[width=3pt, length=3pt, fill=black, black]}, shorten <=-1.5pt, shorten >=-1.5pt] (0,0) node [below left] {$x$} -- \i node [above right] {$\hat x$} ; };
+		\end{scope}
+		\foreach \i [count=\j from 0] in {1,2,\infty,\frac{1}{2}} \scoped [xshift=\j*4.5cm] { \node [anchor=mid west] at (0,-1.5) {$p=\i$}; };
+	\end{tikzpicture}\]
+\end{example}
+\begin{example}
+	$L^p$ spaces are uniformly convex for $1<p<\infty$ as are Hilbert spaces.
+\end{example}
+\begin{thm}[Mulman-Pettis]
+	Every uniformly convex Banach space is reflexive.
+\end{thm}
+\begin{remark}
+	Uniform convexity is a geometric property, while reflexiveness is a topological property: the former is not invariant while interchanging equivalent norms, while the second is. It is striking that a geometric property implies a topological one. While uniform convexity can be a useful tool for proving reflexiveness, bear in mind that there are some weird reflexive spaces that dmit no uniformly convex equivalent norm!
+\end{remark}
+\begin{proof}
+	If suffices to show that $J(B_E)=B_{E^{**}}$. Let $\xi\in E^{**}$ with $\Vert\xi\Vert=1$ and let us show that $\xi\in J(B_E)$. Since $J(B_E)$ is closed in $E^{**}$ it sufficies to prove that there is a sequence in $B_E$ whose images under $J$ converge to $\xi$, that is,
+	\[\forall\varepsilon>0\quad\exists x\in B_E\text{ such that }\Vert\xi-J(x)\Vert\leq\varepsilon.\]
+	Such an $x$ is constructed using the modulus of uniform convexity $\delta$ for any given $\varepsilon>0$ and Goldstine's lemma (which states that $J(B_E)$ is dense in $B_{E^{**}}$ with respect to $\sigma(E^{**},E^*)$, and consequently $J(E)$ is dense in $E^{**}$ with respect to $\sigma(E^{**},E^*)$).
+\end{proof}
+\begin{prop}
+	Assume that $E$ is a uniformly convex Banach space. Let $(x_n)$ be a sequence in $E$ such that $x_n\rightharpoonup x$ weakly and 
+	\[\limsup\Vert x_n\Vert\leq\Vert x\Vert.\]
+	Then $x_n\to x$ strongly.
+\end{prop}
+
+
+\section{$L^p$ spaces.}
+
 \iffalse
 \clearpage
 \section{Exercises}
